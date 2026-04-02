@@ -3,12 +3,12 @@ public class ProjetoDesvioCondicional {
 	public static void main(String[] args) {
         //exercicio1();
 		//exercicio2();
-		exercicio3();
+		//exercicio3();
 		//exercicio4();
 		//exercicio5();
 		//exercicio6();
 		//exercicio7();
-		//exercicio8();
+		exercicio8();
 		//exercicio9();
 		//exercicio10();
 		//exercicio11();
@@ -68,10 +68,99 @@ public class ProjetoDesvioCondicional {
      	 	 
      	 }
     	 
-     }
+      static void exercicio4() {
+    	  
+    	  Scanner sc = new Scanner(System.in);
+    	  System.out.println("escolha um numero: ");
+          double numero = sc.nextDouble();
+    	  if(numero >= 6) {
+    		 System.out.println("você foi aprovado "); 
+    	  }
+    	  else {
+    	  System.out.println("você foi reprovado");
+    	  }
+      }
 
-		
+
+       static void exercicio5() {
+    	   
+    	  Scanner sc = new Scanner(System.in);
+     	  System.out.println("qual é a sua idade? ");
+     	  double numero = sc.nextDouble();
+     	  if(numero >= 16) {
+     		  System.out.println("você pode votar");
+     	  }
+     	  else {
+     		  System.out.println("você não pode votar");
+     	  }
+    	   
+       }
+ 
 	
+       static void exercicio6() {
+    	   
+    	   Scanner sc = new Scanner(System.in);
+    	   System.out.println("escolha um número");
+    	   double numero1 = sc.nextDouble();
+    	   System.out.println("escolha outro número");
+    	   double numero2 = sc.nextDouble();
+    	   System.out.println("escolha mais um número");
+    	   double numero3 = sc.nextDouble();
+    	   double maior;
+    	   if(numero1 > numero2 && numero1 > numero3) {
+    		   System.out.println("o número maior é: " + numero1);
+    	   }
+    	   else if(numero2 > numero1 && numero2 > numero3) {
+    		   System.out.println("o número maior é: " + numero2);
+    	   }
+    	   else {
+    		   System.out.println("o número maior é: " + numero3);
+    		   
+    	   
+    	   }
+       }
+   
+       static void exercicio7() {
+    	 
+    	   Scanner sc = new Scanner(System.in);
+    	   System.out.println("qual foi sua nota na prova?");
+    	   double nota = sc.nextDouble();
+    	   if(nota >= 0 && nota <= 4) {
+    		   System.out.println("sua nota foi insuficiente");
+    	   }
+    	   else if(nota >= 5 && nota <=6) {
+    		   System.out.println("sua nota é regular");
+    	   }
+    	   else if( nota >= 7 && nota <= 8) {
+    		   System.out.println("sua nota foi boa");
+    	   }
+    	   else {
+    		   System.out.println("sua nota é exelente");
+    		   
+    	   }  
+    } 
+
+
+       static void exercicio8() {
+    	   
+    	   Scanner sc = new Scanner(System.in);
+    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
+    	   double lado1 = sc.nextDouble();
+    	   System.out.println("escolha um tamanho para o segundo lado: ");
+    	   double lado2 = sc.nextDouble();
+    	   System.out.println("escolha um tamanho para o terceiro lado: ");
+    	   double lado3 = sc.nextDouble();
+    	   if(lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
+    		   System.out.println("este triângulo é valido");
+    	   }
+    	   else {
+    		   System.out.println("este triângulo não é valido");
+    	   }
+       }
+}
+
+
+
 	
 		
 	
