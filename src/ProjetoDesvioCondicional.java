@@ -157,7 +157,87 @@ public class ProjetoDesvioCondicional {
     		   System.out.println("este triângulo não é valido");
     	   }
        }
+       static void exercicio8() {
+		    	   
+		    	   Scanner sc = new Scanner(System.in);
+		    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
+		    	   double lado1 = sc.nextDouble();
+		    	   System.out.println("escolha um tamanho para o segundo lado: ");
+		    	   double lado2 = sc.nextDouble();
+		    	   System.out.println("escolha um tamanho para o terceiro lado: ");
+		    	   double lado3 = sc.nextDouble();
+		    	   if(lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
+		    		   System.out.println("este triângulo é valido");
+		    	   }
+		    	   else {
+		    		   System.out.println("este triângulo não é valido");
+		    	   }
+		       }
+
+
+	            static void exercicio9() {
+	            	
+	            	Scanner sc = new Scanner(System.in);
+			    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
+			    	   double lado1 = sc.nextDouble();
+			    	   System.out.println("escolha um tamanho para o segundo lado: ");
+			    	   double lado2 = sc.nextDouble();
+			    	   System.out.println("escolha um tamanho para o terceiro lado: ");
+			    	   double lado3 = sc.nextDouble();
+			    	   if(lado1 + lado2 <= lado3 || lado1 + lado3 <= lado2 || lado2 + lado3 <= lado1) {
+			    		   System.out.println("este triângulo não existe");
+			    	   }
+			    	   else if(lado1 == lado2 && lado1 == lado3) {
+			    		   System.out.println("este é um triângulo equilátero");
+	                   }
+			    	   else if(lado1 == lado2 || lado1 == lado3 || lado2 == lado3) {
+			    		   System.out.println("este é um triângulo isósceles");
+			    	   }
+	                   else {
+	                	   System.out.println("este é um triângulo escaleno");
+	                   }
+	            	
+	            }
+	            	
+	            static void exercicio10() {
+	            	
+	            	Scanner sc = new Scanner(System.in);
+	            	ArrayList<String> usuarios = new ArrayList<>();
+	            	ArrayList<String> senhas = new ArrayList<>();
+	            	
+	            	while(true) {
+	            	
+			    	   System.out.println("Crie seu usuário: ");
+			    	   String usuario = sc.nextLine();
+			    	   if(usuarios.contains(usuario)) {
+			    		   System.out.println("acesso negado, este usuário da existe");
+			    		   continue;
+			    	   }
+			    	   else {
+			    		   usuarios.add(usuario);
+			    		   System.out.println("acesso permitido, novo usuário criado com sucesso!");
+			    	   }
+  
+			    	   System.out.println("Crie sua senha: ");
+			    	   String senha = sc.nextLine();
+			    	   senhas.add(senha);
+			    	   System.out.println("senha cadastrada com sucesso");
+		
+			    	   System.out.println("Quer cadastrar um novo usuário?(digite s para sim e n para não): ");
+			    	   String opcao = sc.nextLine();
+			    	   
+			    	   if(opcao.equalsIgnoreCase("n")) {
+			    		   break;
+			    	   }
+			   }  	   
+	    }
 }
+
+
+	            
+
+
+
 
 
 
