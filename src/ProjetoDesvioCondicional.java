@@ -399,17 +399,132 @@ public class ProjetoDesvioCondicional {
                   }
                   System.out.println("O seu empréstimo foi: " + resultado);
               }
-}
+              static void exercicio17() {
+            	  
+            	  Scanner sc = new Scanner(System.in);
+                  System.out.println("valor do empréstimo: ");
+                  double emprestimo = sc.nextDouble();
+   	              System.out.println("você pretende parcelar em quantas vezes? ");
+                  double parcela = sc.nextDouble();
+                  System.out.println("qual o seu salário");
+                  double salario = sc.nextDouble();
+                  String resultado;
+                  double valorparcela = emprestimo / parcela;
+                  
+                  if(valorparcela <= 0.2 * salario) {
+                	  resultado = "aprovado";
+                	  
+                  }
+                  else {
+                	  resultado = "recusado";
+                  }
+                  System.out.println("O seu empréstimo foi: " + resultado);
+              }
 
-	            
+             static void exercicio18() {
+            	 
+            	 Scanner sc = new Scanner(System.in);
+            	 double numerosecreto = 6;
+            	 String resultado;
+            	 
+            	 while(true) {
+            	 
+                 System.out.println("Tente adivinhar o número que eu estou pensando(00 a 10): ");
+                 double palpite = sc.nextDouble();
+            	 
+                 if(palpite < numerosecreto) {
+                	 resultado = "Que pena! Você errou, o número que eu escolhi é maior!"; 
+                 }
+                 else if(palpite > numerosecreto) {
+                	 resultado = "Que pena! Você errou, o número que eu escolhi é menor!";
+                 }
+                 else {
+                	 resultado = "Parabéns! Você acertou o número que eu estava pensando";
+                	 System.out.println(resultado);
+                	 break;
+                 }
+                 System.out.println(resultado);
+            	 }
+             }
 
+             static void exercicio19() {
+            	 
+            	 Scanner sc = new Scanner(System.in);
+            	    
+            	    System.out.println("Digite seu IMC: ");
+            	    double imc = sc.nextDouble();
+            	    
+            	    String resultado;
+            	    
+            	    if(imc < 18.5) {
+            	        resultado = "baixo peso";
+            	    }
+            	    else if(imc <= 24.99) {
+            	        resultado = "peso normal";
+            	    }
+            	    else if(imc <= 29.99) {
+            	        resultado = "sobrepeso";
+            	    }
+            	    else {
+            	        resultado = "obesidade";
+            	    }
+            	    
+            	    System.out.println("Resultado do seu IMC: " + resultado);
+            	}
 
+            static void exercicio20() {
+            	
+            	Scanner sc = new Scanner(System.in);
+            	ArrayList<String> usuarios = new ArrayList<>();
+            	ArrayList<String> senhas = new ArrayList<>();
+            	
+            	
+		    	   System.out.println("Crie seu usuário: ");
+		    	   String novousuario = sc.nextLine();
+		    	   if(usuarios.contains(novousuario)) {
+		    		   System.out.println("acesso negado, este usuário da existe");
+		    	   }
+		    	   else {
+		    		   usuarios.add(novousuario);
+		    		   System.out.println("acesso permitido, novo usuário criado com sucesso!");
+		    	   }
 
+		    	   System.out.println("Crie sua senha: ");
+		    	   String novasenha = sc.nextLine();
+		    	   senhas.add(novasenha);
+		    	   System.out.println("senha cadastrada com sucesso");
+		    	   
+		    	   System.out.println("faça login na sua conta, qual o seu usuário?");	
+		    	   String usuario = sc.nextLine();
+		    	   
+		    	   int index = usuarios.indexOf(usuario);
+		    	   if (index == -1) {
+		               System.out.println("Usuário não encontrado!");
+		           } else {
 
+		               int tentativas = 0;
+		               boolean acesso = false;
 
+		               while (tentativas < 3) {
+		                   System.out.println("Senha: ");
+		                   String senha = sc.nextLine();
 
-	
-		
-	
+		                   if (senha.equals(senhas.get(index))) {
+		                       acesso = true;
+		                       break;
+		                   } else {
+		                       tentativas++;
+		                       System.out.println("Senha incorreta! Tentativas restantes: " + (3 - tentativas));
+		                   }
+		               }
 
+		               if (acesso) {
+		                   System.out.println("Login bem-sucedido!");
+		               } else {
+		                   System.out.println("Acesso bloqueado!");
+		               }
+		           }
 
+		           sc.close();
+		    }
+        }
