@@ -231,8 +231,175 @@ public class ProjetoDesvioCondicional {
 			    	   }
 			   }  	   
 	    }
-}
+                
+	            static void exercicio11() {
+	            	
+	            	Scanner sc = new Scanner(System.in);
+	            	System.out.println("em qual ano você está?");
+	            	double ano = sc.nextDouble();
+	            	if(ano % 4 == 0) {
+	            		System.out.println("você está em um ano bissexto");
+	            	}
+	            	else {
+	            		System.out.println("você não está em um ano bissexto");
+	            	}
+	            }
+	            
+	            static void exercicio12() {
+	            	
+	            	Scanner sc = new Scanner(System.in);
+	            	DecimalFormat df = new DecimalFormat("0.##");
+	            	
+	            	System.out.println("escolha um número: ");
+	            	double a = sc.nextDouble();
+	            	
+	            	System.out.println("escolha um operado(+,-,*,/): ");
+	            	char op = sc.next().charAt(0);
+	            	
+	            	System.out.println("escolha outro número: ");
+	            	double b = sc.nextDouble();
+	            	
+	            	double resultado = 0;
+	            	
+					switch(op) {
+					
+	            	case '+':
+	            		resultado = a+b;
+	            		break;
+	            	
+	            	case '-':
+	            		resultado = a-b;
+	            		break;
+	            	
+	            	case '*':
+	            		resultado = a*b;
+	            		break;
+	            		
+	            	case '/':
+	            		resultado = a/b;
+	            		break;      		
+	            	
+	            	default:
+	            		System.out.println("operador inválido");
+	            	    return;
+					}
+	            	
+					System.out.println("resultado: " + df.format(resultado));
+					
+	            }
 
+               static void exercicio13() {
+            	   
+            	   Scanner sc = new Scanner(System.in);
+            	   System.out.println("Qual o seu salário mensal? ");
+            	   double salario = sc.nextDouble();
+            	   double imposto;
+
+            	   if (salario <= 1500) {
+            	       imposto = salario * 0.2;
+            	   } else if (salario <= 3200) {
+            	       imposto = salario * 0.3;
+            	   } else if (salario <= 5000) {
+            	       imposto = salario * 0.4;
+            	   } else if (salario <= 10000) {
+            	       imposto = salario * 0.5;
+            	   } else {
+            	       imposto = salario * 0.7;
+            	   }
+
+            	   System.out.println("Você paga R$ " + imposto + " de imposto por mês.");
+               }
+
+              static void exercicio14() {
+            	  
+               Scanner sc = new Scanner(System.in);
+           	   System.out.println("Valor da compra: ");
+           	   double valor = sc.nextDouble();
+           	   double resultado;
+           	   
+           	   if(valor <= 100) {
+           		   resultado = valor;
+           	   }
+           	   else if(valor < 500) {
+           		   resultado = valor * (1 - (10 / 100.0));
+           	   }
+           	   else {
+           		   resultado = valor * (1 - (20/100.0));
+           	   }
+           	   
+            	  System.out.println("O valor final da sua compra com o desconto ficou: " + "R$" + resultado);
+           	   
+              }
+                  
+              static void exercicio15() {
+            	  
+              Scanner sc =new Scanner(System.in);
+              System.out.println("qual a sua idade? ");
+              double idade = sc.nextDouble();
+              String resultado = sc.nextLine();
+              
+              if(idade <= 12) {
+            	  resultado = "Criança";
+              }
+              else if(idade <= 17) {
+            	  resultado = "Adolescente";
+              }
+              else if(idade <= 59) {
+            	  resultado = "Adulto";
+              }
+              else {
+            	  resultado = "Idoso";
+              }
+              
+              System.out.println("Você é: " + resultado);
+              
+              }
+
+              static void exercicio16() {
+            	  
+            	  Scanner sc = new Scanner(System.in);
+                  System.out.println("Nota de matemática: ");
+                  double nota1 = sc.nextDouble();
+                  System.out.println("Nota de português: ");
+                  double nota2 = sc.nextDouble();
+                  System.out.println("Nota de ciências: ");
+                  double nota3 = sc.nextDouble();
+                  String resultado = sc.nextLine();
+                  
+                  if((nota1 + nota2 + nota3) / 3 >= 7) {
+                	  resultado = "aprovado";
+                  }
+                  else if((nota1 + nota2 + nota3) / 3 >= 5) {
+                	  resultado = "recuperação";
+                  }
+                  else {
+                	  resultado = "reprovado";
+                  }
+                  System.out.println("Resultado: " + resultado);
+              }
+              
+              static void exercicio17() {
+            	  
+            	  Scanner sc = new Scanner(System.in);
+                  System.out.println("valor do empréstimo: ");
+                  double emprestimo = sc.nextDouble();
+   	              System.out.println("você pretende parcelar em quantas vezes? ");
+                  double parcela = sc.nextDouble();
+                  System.out.println("qual o seu salário");
+                  double salario = sc.nextDouble();
+                  String resultado;
+                  double valorparcela = emprestimo / parcela;
+                  
+                  if(valorparcela <= 0.2 * salario) {
+                	  resultado = "aprovado";
+                	  
+                  }
+                  else {
+                	  resultado = "recusado";
+                  }
+                  System.out.println("O seu empréstimo foi: " + resultado);
+              }
+}
 
 	            
 
