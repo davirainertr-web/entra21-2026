@@ -1,163 +1,152 @@
-import java.util.Scanner;;
-public class ProjetoDesvioCondicional {
+import java.util.Scanner;
+import java.util.ArrayList;
+import javax.swing.Spring;
+import java.text.DecimalFormat;
+
+public class ListaExerciciosDesvioCondicional {
+
 	public static void main(String[] args) {
-        //exercicio1();
-		//exercicio2();
-		//exercicio3();
-		//exercicio4();
-		//exercicio5();
-		//exercicio6();
-		//exercicio7();
-		exercicio8();
-		//exercicio9();
-		//exercicio10();
-		//exercicio11();
-		//exercicio12();
-		//exercicio13();
-		//exercicio14();
-		//exercicio15();
-		//exercicio16();
-		//exercicio17();
-		//exercicio18();
-		//exercicio19();
-		//exercicio20();
-		
-	}
-	
-	static void exercicio1() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("escolha um número inteiro: ");
-		int numero = sc.nextInt();
-		if(numero % 2 == 0) {
-		System.out.println("o número é par");
+		//exercicio1();
+				//exercicio2();
+				//exercicio3();
+				//exercicio4();
+				//exercicio5();
+				//exercicio6();
+				//exercicio7();
+				//exercicio8();
+				//exercicio9();
+				//exercicio10();
+				//exercicio11();
+				//exercicio12();
+				//exercicio13();
+				//exercicio14();
+				//exercicio15();
+				//exercicio16();
+				//exercicio17();
+				//exercicio18();
+				//exercicio19();
+				//exercicio20();
+				
+			}
+			
+			static void exercicio1() {
+				Scanner sc = new Scanner(System.in);
+				System.out.println("escolha um número inteiro: ");
+				int numero = sc.nextInt();
+				if(numero % 2 == 0) {
+				System.out.println("o número é par");
+				}
+				else {
+				System.out.println("o número é ímpar");
+				}
 		}
-		else {
-		System.out.println("o número é ímpar");
-		}
-}
 
-    static void exercicio2() {
-    	
-    	Scanner sc = new Scanner(System.in);
-    	System.out.println("escolha um número: ");
-    	int numero1 = sc.nextInt();
-    	System.out.println("escolha outro número: ");
-    	int numero2 = sc.nextInt();
-    	if(numero1 > numero2) {
-    	System.out.println(numero1 + " é maior que " + numero2);
-    	}
-    	else {
-        System.out.println(numero2 + " é maior que " + numero1);
-    	}
-    }
-     
-     static void exercicio3() {
-    	 
-    	 Scanner sc = new Scanner(System.in);
-     	 System.out.println("escolha um número: ");
-     	 double numero = sc.nextDouble();
-     	 if(numero > 0) {
-     		 System.out.println("o número é postitivo");
-     	 }
-     	 else if(numero == 0) {
-     		 System.out.println("o número é exatamente 0");
-     	 }
-     	 else {
-     		 System.out.println("o numero é negativo");
-     	 }
-     	 	 
-     	 }
-    	 
-      static void exercicio4() {
-    	  
-    	  Scanner sc = new Scanner(System.in);
-    	  System.out.println("escolha um numero: ");
-          double numero = sc.nextDouble();
-    	  if(numero >= 6) {
-    		 System.out.println("você foi aprovado "); 
-    	  }
-    	  else {
-    	  System.out.println("você foi reprovado");
-    	  }
-      }
+		    static void exercicio2() {
+		    	
+		    	Scanner sc = new Scanner(System.in);
+		    	System.out.println("escolha um número: ");
+		    	int numero1 = sc.nextInt();
+		    	System.out.println("escolha outro número: ");
+		    	int numero2 = sc.nextInt();
+		    	if(numero1 > numero2) {
+		    	System.out.println(numero1 + " é maior que " + numero2);
+		    	}
+		    	else {
+		        System.out.println(numero2 + " é maior que " + numero1);
+		    	}
+		    }
+		     
+		     static void exercicio3() {
+		    	 
+		    	 Scanner sc = new Scanner(System.in);
+		     	 System.out.println("escolha um número: ");
+		     	 double numero = sc.nextDouble();
+		     	 if(numero > 0) {
+		     		 System.out.println("o número é postitivo");
+		     	 }
+		     	 else if(numero == 0) {
+		     		 System.out.println("o número é exatamente 0");
+		     	 }
+		     	 else {
+		     		 System.out.println("o numero é negativo");
+		     	 }
+		     	 	 
+		     	 }
+		    	 
+		      static void exercicio4() {
+		    	  
+		    	  Scanner sc = new Scanner(System.in);
+		    	  System.out.println("escolha um numero: ");
+		          double numero = sc.nextDouble();
+		    	  if(numero >= 6) {
+		    		 System.out.println("você foi aprovado "); 
+		    	  }
+		    	  else {
+		    	  System.out.println("você foi reprovado");
+		    	  }
+		      }
 
 
-       static void exercicio5() {
-    	   
-    	  Scanner sc = new Scanner(System.in);
-     	  System.out.println("qual é a sua idade? ");
-     	  double numero = sc.nextDouble();
-     	  if(numero >= 16) {
-     		  System.out.println("você pode votar");
-     	  }
-     	  else {
-     		  System.out.println("você não pode votar");
-     	  }
-    	   
-       }
- 
-	
-       static void exercicio6() {
-    	   
-    	   Scanner sc = new Scanner(System.in);
-    	   System.out.println("escolha um número");
-    	   double numero1 = sc.nextDouble();
-    	   System.out.println("escolha outro número");
-    	   double numero2 = sc.nextDouble();
-    	   System.out.println("escolha mais um número");
-    	   double numero3 = sc.nextDouble();
-    	   double maior;
-    	   if(numero1 > numero2 && numero1 > numero3) {
-    		   System.out.println("o número maior é: " + numero1);
-    	   }
-    	   else if(numero2 > numero1 && numero2 > numero3) {
-    		   System.out.println("o número maior é: " + numero2);
-    	   }
-    	   else {
-    		   System.out.println("o número maior é: " + numero3);
-    		   
-    	   
-    	   }
-       }
-   
-       static void exercicio7() {
-    	 
-    	   Scanner sc = new Scanner(System.in);
-    	   System.out.println("qual foi sua nota na prova?");
-    	   double nota = sc.nextDouble();
-    	   if(nota >= 0 && nota <= 4) {
-    		   System.out.println("sua nota foi insuficiente");
-    	   }
-    	   else if(nota >= 5 && nota <=6) {
-    		   System.out.println("sua nota é regular");
-    	   }
-    	   else if( nota >= 7 && nota <= 8) {
-    		   System.out.println("sua nota foi boa");
-    	   }
-    	   else {
-    		   System.out.println("sua nota é exelente");
-    		   
-    	   }  
-    } 
+		       static void exercicio5() {
+		    	   
+		    	  Scanner sc = new Scanner(System.in);
+		     	  System.out.println("qual é a sua idade? ");
+		     	  double numero = sc.nextDouble();
+		     	  if(numero >= 16) {
+		     		  System.out.println("você pode votar");
+		     	  }
+		     	  else {
+		     		  System.out.println("você não pode votar");
+		     	  }
+		    	   
+		       }
+		 
+			
+		       static void exercicio6() {
+		    	   
+		    	   Scanner sc = new Scanner(System.in);
+		    	   System.out.println("escolha um número");
+		    	   double numero1 = sc.nextDouble();
+		    	   System.out.println("escolha outro número");
+		    	   double numero2 = sc.nextDouble();
+		    	   System.out.println("escolha mais um número");
+		    	   double numero3 = sc.nextDouble();
+		    	   double maior;
+		    	   if(numero1 > numero2 && numero1 > numero3) {
+		    		   System.out.println("o número maior é: " + numero1);
+		    	   }
+		    	   else if(numero2 > numero1 && numero2 > numero3) {
+		    		   System.out.println("o número maior é: " + numero2);
+		    	   }
+		    	   else {
+		    		   System.out.println("o número maior é: " + numero3);
+		    		   
+		    	   
+		    	   }
+		       }
+		   
+		       static void exercicio7() {
+		    	 
+		    	   Scanner sc = new Scanner(System.in);
+		    	   System.out.println("qual foi sua nota na prova?");
+		    	   double nota = sc.nextDouble();
+		    	   if(nota >= 0 && nota <= 4) {
+		    		   System.out.println("sua nota foi insuficiente");
+		    	   }
+		    	   else if(nota >= 5 && nota <=6) {
+		    		   System.out.println("sua nota é regular");
+		    	   }
+		    	   else if( nota >= 7 && nota <= 8) {
+		    		   System.out.println("sua nota foi boa");
+		    	   }
+		    	   else {
+		    		   System.out.println("sua nota é exelente");
+		    		   
+		    	   }  
+		    } 
 
 
-       static void exercicio8() {
-    	   
-    	   Scanner sc = new Scanner(System.in);
-    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
-    	   double lado1 = sc.nextDouble();
-    	   System.out.println("escolha um tamanho para o segundo lado: ");
-    	   double lado2 = sc.nextDouble();
-    	   System.out.println("escolha um tamanho para o terceiro lado: ");
-    	   double lado3 = sc.nextDouble();
-    	   if(lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) {
-    		   System.out.println("este triângulo é valido");
-    	   }
-    	   else {
-    		   System.out.println("este triângulo não é valido");
-    	   }
-       }
-       static void exercicio8() {
+		       static void exercicio8() {
 		    	   
 		    	   Scanner sc = new Scanner(System.in);
 		    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
@@ -399,27 +388,6 @@ public class ProjetoDesvioCondicional {
                   }
                   System.out.println("O seu empréstimo foi: " + resultado);
               }
-              static void exercicio17() {
-            	  
-            	  Scanner sc = new Scanner(System.in);
-                  System.out.println("valor do empréstimo: ");
-                  double emprestimo = sc.nextDouble();
-   	              System.out.println("você pretende parcelar em quantas vezes? ");
-                  double parcela = sc.nextDouble();
-                  System.out.println("qual o seu salário");
-                  double salario = sc.nextDouble();
-                  String resultado;
-                  double valorparcela = emprestimo / parcela;
-                  
-                  if(valorparcela <= 0.2 * salario) {
-                	  resultado = "aprovado";
-                	  
-                  }
-                  else {
-                	  resultado = "recusado";
-                  }
-                  System.out.println("O seu empréstimo foi: " + resultado);
-              }
 
              static void exercicio18() {
             	 
@@ -527,4 +495,4 @@ public class ProjetoDesvioCondicional {
 
 		           sc.close();
 		    }
-        }
+}
