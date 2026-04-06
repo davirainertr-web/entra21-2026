@@ -26,8 +26,7 @@ public class ListaExerciciosDesvioCondicional {
 				//exercicio18();
 				//exercicio19();
 				//exercicio20();
-				
-			}
+}
 			
 			static void exercicio1() {
 				Scanner sc = new Scanner(System.in);
@@ -39,7 +38,7 @@ public class ListaExerciciosDesvioCondicional {
 				else {
 				System.out.println("o número é ímpar");
 				}
-		}
+}
 
 		    static void exercicio2() {
 		    	
@@ -54,9 +53,9 @@ public class ListaExerciciosDesvioCondicional {
 		    	else {
 		        System.out.println(numero2 + " é maior que " + numero1);
 		    	}
-		    }
+}
 		     
-		     static void exercicio3() {
+		    static void exercicio3() {
 		    	 
 		    	 Scanner sc = new Scanner(System.in);
 		     	 System.out.println("escolha um número: ");
@@ -71,9 +70,9 @@ public class ListaExerciciosDesvioCondicional {
 		     		 System.out.println("o numero é negativo");
 		     	 }
 		     	 	 
-		     	 }
+}
 		    	 
-		      static void exercicio4() {
+		    static void exercicio4() {
 		    	  
 		    	  Scanner sc = new Scanner(System.in);
 		    	  System.out.println("escolha um numero: ");
@@ -84,10 +83,10 @@ public class ListaExerciciosDesvioCondicional {
 		    	  else {
 		    	  System.out.println("você foi reprovado");
 		    	  }
-		      }
+}
 
 
-		       static void exercicio5() {
+		    static void exercicio5() {
 		    	   
 		    	  Scanner sc = new Scanner(System.in);
 		     	  System.out.println("qual é a sua idade? ");
@@ -99,10 +98,10 @@ public class ListaExerciciosDesvioCondicional {
 		     		  System.out.println("você não pode votar");
 		     	  }
 		    	   
-		       }
+}
 		 
 			
-		       static void exercicio6() {
+		    static void exercicio6() {
 		    	   
 		    	   Scanner sc = new Scanner(System.in);
 		    	   System.out.println("escolha um número");
@@ -123,9 +122,9 @@ public class ListaExerciciosDesvioCondicional {
 		    		   
 		    	   
 		    	   }
-		       }
+}
 		   
-		       static void exercicio7() {
+		    static void exercicio7() {
 		    	 
 		    	   Scanner sc = new Scanner(System.in);
 		    	   System.out.println("qual foi sua nota na prova?");
@@ -143,10 +142,10 @@ public class ListaExerciciosDesvioCondicional {
 		    		   System.out.println("sua nota é exelente");
 		    		   
 		    	   }  
-		    } 
+} 
 
 
-		       static void exercicio8() {
+		    static void exercicio8() {
 		    	   
 		    	   Scanner sc = new Scanner(System.in);
 		    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
@@ -161,10 +160,10 @@ public class ListaExerciciosDesvioCondicional {
 		    	   else {
 		    		   System.out.println("este triângulo não é valido");
 		    	   }
-		       }
+}
 
 
-	            static void exercicio9() {
+	        static void exercicio9() {
 	            	
 	            	Scanner sc = new Scanner(System.in);
 			    	   System.out.println("escolha o tamanho do primeiro lado de um triângulo: ");
@@ -186,9 +185,9 @@ public class ListaExerciciosDesvioCondicional {
 	                	   System.out.println("este é um triângulo escaleno");
 	                   }
 	            	
-	            }
+}
 	            	
-	            static void exercicio10() {
+	        static void exercicio10() {
 	            	
 	            	Scanner sc = new Scanner(System.in);
 	            	ArrayList<String> usuarios = new ArrayList<>();
@@ -219,9 +218,9 @@ public class ListaExerciciosDesvioCondicional {
 			    		   break;
 			    	   }
 			   }  	   
-	    }
+}
                 
-	            static void exercicio11() {
+	        static void exercicio11() {
 	            	
 	            	Scanner sc = new Scanner(System.in);
 	            	System.out.println("em qual ano você está?");
@@ -232,9 +231,9 @@ public class ListaExerciciosDesvioCondicional {
 	            	else {
 	            		System.out.println("você não está em um ano bissexto");
 	            	}
-	            }
+}
 	            
-	            static void exercicio12() {
+	        static void exercicio12() {
 	            	
 	            	Scanner sc = new Scanner(System.in);
 	            	DecimalFormat df = new DecimalFormat("0.##");
@@ -275,9 +274,9 @@ public class ListaExerciciosDesvioCondicional {
 	            	
 					System.out.println("resultado: " + df.format(resultado));
 					
-	            }
+}
 
-               static void exercicio13() {
+            static void exercicio13() {
             	   
             	   Scanner sc = new Scanner(System.in);
             	   System.out.println("Qual o seu salário mensal? ");
@@ -297,9 +296,9 @@ public class ListaExerciciosDesvioCondicional {
             	   }
 
             	   System.out.println("Você paga R$ " + imposto + " de imposto por mês.");
-               }
+}
 
-              static void exercicio14() {
+            static void exercicio14() {
             	  
                Scanner sc = new Scanner(System.in);
            	   System.out.println("Valor da compra: ");
@@ -318,9 +317,9 @@ public class ListaExerciciosDesvioCondicional {
            	   
             	  System.out.println("O valor final da sua compra com o desconto ficou: " + "R$" + resultado);
            	   
-              }
+}
                   
-              static void exercicio15() {
+            static void exercicio15() {
             	  
               Scanner sc =new Scanner(System.in);
               System.out.println("qual a sua idade? ");
@@ -342,9 +341,9 @@ public class ListaExerciciosDesvioCondicional {
               
               System.out.println("Você é: " + resultado);
               
-              }
+}
 
-              static void exercicio16() {
+            static void exercicio16() {
             	  
             	  Scanner sc = new Scanner(System.in);
                   System.out.println("Nota de matemática: ");
@@ -365,9 +364,9 @@ public class ListaExerciciosDesvioCondicional {
                 	  resultado = "reprovado";
                   }
                   System.out.println("Resultado: " + resultado);
-              }
+}
               
-              static void exercicio17() {
+            static void exercicio17() {
             	  
             	  Scanner sc = new Scanner(System.in);
                   System.out.println("valor do empréstimo: ");
@@ -387,9 +386,9 @@ public class ListaExerciciosDesvioCondicional {
                 	  resultado = "recusado";
                   }
                   System.out.println("O seu empréstimo foi: " + resultado);
-              }
+}
 
-             static void exercicio18() {
+            static void exercicio18() {
             	 
             	 Scanner sc = new Scanner(System.in);
             	 double numerosecreto = 6;
@@ -413,9 +412,9 @@ public class ListaExerciciosDesvioCondicional {
                  }
                  System.out.println(resultado);
             	 }
-             }
+}
 
-             static void exercicio19() {
+            static void exercicio19() {
             	 
             	 Scanner sc = new Scanner(System.in);
             	    
@@ -438,7 +437,7 @@ public class ListaExerciciosDesvioCondicional {
             	    }
             	    
             	    System.out.println("Resultado do seu IMC: " + resultado);
-            	}
+}
 
             static void exercicio20() {
             	
@@ -494,5 +493,5 @@ public class ListaExerciciosDesvioCondicional {
 		           }
 
 		           sc.close();
-		    }
+}
 }
