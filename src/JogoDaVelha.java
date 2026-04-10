@@ -20,7 +20,6 @@ public class JogoDaVelha {
 
         while (true) {
 
-            // Mostrar tabuleiro
             for (int i = 0; i < 3; i++) {
                 System.out.println(" " + tabuleiro[i][0] + " | " + tabuleiro[i][1] + " | " + tabuleiro[i][2]);
                 if (i < 2) System.out.println("---+---+---");
@@ -48,7 +47,6 @@ public class JogoDaVelha {
                 continue;
             }
 
-            // VERIFICA VITÓRIA (tem que estar dentro do while)
             if (verificarVitoria(tabuleiro, jogador)) {
                 System.out.println("\nJogador " + jogador + " venceu!");
 
@@ -60,7 +58,6 @@ public class JogoDaVelha {
                 break;
             }
 
-            // empate SEMPRE depois da jogada, mas antes de trocar jogador
             if (verificarEmpate(tabuleiro)) {
                 System.out.println("\nDeu empate!");
 
@@ -72,9 +69,6 @@ public class JogoDaVelha {
                 break;
             }
 
-             
-
-            // Alterna jogador
             jogador = jogador.equals("X") ? "O" : "X";
         }
 
@@ -105,18 +99,18 @@ public class JogoDaVelha {
 
         return false;
     }
+
     static boolean verificarEmpate(String[][] t) {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
 
-                // ainda existe número → jogo não acabou
                 if (!t[i][j].equals("X") && !t[i][j].equals("O")) {
                     return false;
                 }
             }
         }
 
-        return true; // tabuleiro cheio
+        return true;
     }
 }
