@@ -19,11 +19,15 @@ public class JogoDaVelha {
         String jogador = "X";
 
         while (true) {
+        	
+        	System.out.println("");
 
             for (int i = 0; i < 3; i++) {
                 System.out.println(" " + tabuleiro[i][0] + " | " + tabuleiro[i][1] + " | " + tabuleiro[i][2]);
                 if (i < 2) System.out.println("---+---+---");
             }
+            
+            System.out.println("");
 
             System.out.println("Jogador: " + jogador);
 
