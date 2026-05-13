@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #dfe0ea;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+
+  margin: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cinema {
+  width: 700px;
+}
+
+
+.tela {
+  background: #0d5eff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 100px 100px 20px 20px;
+  margin-bottom: 40px;
+  font-size: 24px;
+  letter-spacing: 6px;  
+}
+
+
+.fileira{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.letra {
+  display: flex;
+  width: 20px;
+  font-weight: bold;
+}
+
+.grupo-assentos{
+  display: flex;
+  gap: 10px;
+}
+
+
+.assento {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #666;
+  background: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.assento:hover {
+  transform: scale(1.3);
+}
+
+.assento.selecionado {
+  background: green;
+  color: white;
+}
+.ocupado {
+    background-color: gray;
+}
+
+.assento.ocupado {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.legenda {
+  margin-top: 40px;
+  display: flex;
+  gap: 30px;
+}
+
+.item-legenda {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quadrado {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.disponivel {
+  background: white;
+  border: 1px solid #333;
+}
+
+.selecionado {
+  background: green;
+}
