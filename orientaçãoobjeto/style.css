@@ -1,0 +1,26 @@
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+    background: #dfe0ea;
+    margin: 0;
+    min-height: 100vh;
+    }
+
+    .titulo {
+    width: 100%;  
+    color: black;
+
+    text-align: center;
+
+    padding: 20px 0;
+
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
