@@ -1,26 +1,119 @@
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-    }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       font-family: Arial, Helvetica, sans-serif;
+        }
 
-    body {
-    background: #dfe0ea;
-    margin: 0;
-    min-height: 100vh;
-    }
+        body {
+        display: flex;
+        background: #dfe0ea;
+        margin: 0;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        }
 
-    .titulo {
-    width: 100%;  
-    color: black;
+        .titulo {
+        width: 100%;  
+        color: black;
 
-    text-align: center;
+        text-align: center;
 
-    padding: 20px 0;
+        padding: 20px;
 
-    font-size: 35px;
-    font-weight: bold;
-    letter-spacing: 3px;
-}   
+        font-size: 35px;
+        font-weight: bold;
+        letter-spacing: 0px;
 
+        position: absolute;
+        top: 0px;
+
+        }   
+        .informacoes {
+        background: white;
+        padding: 40px;
+        padding-bottom: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        text-align: left;
+        width:700px; 
+        height: 400px;    
+        position: absolute;
+        top: 80px;
+        }
+
+        .informacoes h1 {
+        font-size: 20px;
+        margin-top: 20px;
+        }
+
+        .informacoes h2 {
+        font-size: 20px;
+        margin-top: 20px;       
+        }
+
+        .informacoes h3 {
+        font-size: 20px;
+        margin-top: 20px;
+        }
+        .informacoes button {
+        font-size: 20px;
+        margin-top: 35px;
+        background: #0d5eff;
+        border-radius: 4px;
+        color: white;
+        text-align: center;
+        padding: 7px;
+        }
+            
+        .campo-resposta {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 4px;
+        }
+
+        .subtítulo {
+        width: 100%;  
+        color: black;
+
+        text-align: center;
+
+        padding: 20px;
+
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 0px;
+
+        position: absolute;
+        top: 500px;
+        }
+
+        .tabela-clientes {
+        width: 700px; 
+        position: absolute;              
+        top: 580px;               
+        border-collapse: collapse;  
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;         
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .tabela-clientes th {
+        background-color: #0d5eff;  
+        color: white;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 18px;
+        }
+
+        .tabela-clientes td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #dfe0ea; 
+        font-size: 16px;
+        }

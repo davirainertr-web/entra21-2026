@@ -11,18 +11,29 @@
             Cadastro de Clientes
         </div>
         <div class="informacoes">
-            <div class="Nome">
-                Nome
-            <div class="Email">
-                Email
-            <div class="Telefone">
-                Telefone
-            <div class="Botão">
-                Cadastrar
-            </div>
-            </div>
-            </div>
+            <h1>Nome Completo</h1>
+            <input type="text" class="campo-resposta" placeholder="ex: Hugo Moura" />
+            <h2>Email</h2>
+            <input type="text" class="campo-resposta" placeholder="ex: hugo.moura@email.com" />
+            <h3>Telefone</h3>
+            <input type="text" class="campo-resposta" placeholder="ex: (11) 99999-9999" />
+            <button>Cadastrar</button>
         </div>
+        <div class="subtítulo">
+            Lista de Clientes
+        </div>
+        <table class="tabela-clientes">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+        </tr>
+    </thead>
+    <tbody id="corpo-tabela">
+    </tbody>
+</table>
+<script src="script.js"></script>
     </body>
     </html>
     
