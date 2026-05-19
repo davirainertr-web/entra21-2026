@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Armazenar</button>
+
+    <button>Ler </button>
+    <button>Enviar objeto</button>
+    <button>Ler objeto</button>
+
+    <script>
+        const bt = document.getElementsByTagName("button")[0]
+        bt.addEventListener('click', function(event){
+            const nome = document.getElementById('nome').value
+            localStorage.setItem('parceiro',nome)
+        })
+
+        const btr = document.getElementsByTagName("button")[1]
+        btr.addEventListener('click', function(event){
+           const dados = localStorage.getItem('parceiro')   
+           alert(dados)
+        })
+
+        const bto = document.getElementsByTagName("button")[2]
+        bto.addEventListener('click', function(event){
+           const contato = { nome: 'Ana', email:'ana@gmail.com'}
+
+           localStorage.setItem('agenda', JSON.stringify(contato))
+        })
+
+        const btlo = document.getElementsByTagName("button")[3]
+        btlo.addEventListener('click', function(event){
+           const obj = localStorage.getItem('agenda')
+           alert(obj)
+           const objParse = JSON.parse(obj)
+           alert(objParse.nome)
+        })
+
+    </script>
+</body>

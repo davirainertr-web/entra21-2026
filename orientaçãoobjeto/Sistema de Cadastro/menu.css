@@ -1,0 +1,45 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        display: flex;
+        background: #dfe0ea;
+        min-height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titulo {
+        color: black;
+        text-align: center;
+        font-size: 60px;
+        
+        position: absolute;
+        top: 100px; 
+        width: 100%;  
+    }
+
+    .botoes {
+        background: #0d5eff;
+        padding: 200px;
+        border-radius: 10px;
+        
+        line-height: 2.2; 
+        
+        text-align: center; 
+    }
+
+    .btn-cadastrar {
+        font-size: 20px;
+        margin-top: 35px;
+        background: white;
+        border-radius: 4px;
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }

@@ -1,8 +1,7 @@
-let listaClientes = [];
+let listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
 
 const inputs = document.querySelectorAll('.campo-resposta');
 const botaoCadastrar = document.querySelector('.informacoes button');
-const corpoTabela = document.getElementById('corpo-tabela');
 
 botaoCadastrar.addEventListener('click', () => {
     const nomeDigitado = inputs[0].value.trim();
@@ -31,6 +30,7 @@ botaoCadastrar.addEventListener('click', () => {
 
     if (usuarioJaExiste) {
         alert("Atenção: Este E-mail ou Telefone já está cadastrado para outro usuário!");
+        return;
     }
 
     const novoCliente = {
@@ -40,26 +40,12 @@ botaoCadastrar.addEventListener('click', () => {
     };
 
     listaClientes.push(novoCliente);
+    localStorage.setItem('clientes', JSON.stringify(listaClientes));
 
     inputs[0].value = "";
     inputs[1].value = "";
     inputs[2].value = "";
 
-    atualizarTabela();
+    alert("Cliente cadastrado com sucesso!");
 });
 
-function atualizarTabela() {
-    corpoTabela.innerHTML = "";
-
-    listaClientes.forEach((cliente) => {
-        const linha = document.createElement('tr');
-
-        linha.innerHTML = `
-            <td>${cliente.nome}</td>
-            <td>${cliente.email}</td>
-            <td>${cliente.telefone}</td>
-        `;
-
-        corpoTabela.appendChild(linha);
-    });
-}
