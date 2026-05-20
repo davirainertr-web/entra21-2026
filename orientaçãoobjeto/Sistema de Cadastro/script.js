@@ -3,49 +3,91 @@ let listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
 const inputs = document.querySelectorAll('.campo-resposta');
 const botaoCadastrar = document.querySelector('.informacoes button');
 
+const telefoneInput = inputs[2];
+
+telefoneInput.addEventListener("input", () => {
+
+    let valor = telefoneInput.value;
+
+    valor = valor.replace(/\D/g, "");
+
+    valor = valor.slice(0, 11);
+
+    if (valor.length > 10) {
+        valor = valor.replace(
+            /^(\d{2})(\d{5})(\d{4})$/,
+            "($1) $2-$3"
+        );
+    } else {
+        valor = valor.replace(
+            /^(\d{2})(\d{4})(\d{0,4})$/,
+            "($1) $2-$3"
+        );
+    }
+
+    telefoneInput.value = valor;
+});
+
 botaoCadastrar.addEventListener('click', () => {
+
+    inputs.forEach(input => {
+        input.classList.remove('erro', 'acerto');
+    });
+
     const nomeDigitado = inputs[0].value.trim();
     const emailDigitado = inputs[1].value.trim();
     const telefoneDigitado = inputs[2].value.trim();
 
-    if (nomeDigitado === "" || emailDigitado === "" || telefoneDigitado === "") {
-        alert("Por favor, preencha todos os campos!");
-        return;
-    }
+    let valido = true;
 
     const partesDoNome = nomeDigitado.split(/\s+/);
-    if (partesDoNome.length < 2) {
-        alert("Por favor, digite seu nome completo (Nome e Sobrenome).");
-        return;
+    if (nomeDigitado === "" || partesDoNome.length < 2) {
+        inputs[0].classList.add('erro');
+        valido = false;
+    } else {
+        inputs[0].classList.add('acerto');
     }
 
-    if (!emailDigitado.includes("@")) {
-        alert("Por favor, insira um e-mail válido contendo '@'.");
-        return;
+    if (emailDigitado === "" || !emailDigitado.includes("@")) {
+        inputs[1].classList.add('erro');
+        valido = false;
+    } else {
+        inputs[1].classList.add('acerto');
     }
 
-    const usuarioJaExiste = listaClientes.some((cliente) => {
-        return cliente.email === emailDigitado || cliente.telefone === telefoneDigitado;
-    });
+    if (
+    telefoneDigitado === "" ||
+    telefoneDigitado.length < 15
+) {
+        inputs[2].classList.add('erro');
+        valido = false;
+    } else {
+        inputs[2].classList.add('acerto');
+    }
+
+    if (!valido) return;
+
+    const usuarioJaExiste = listaClientes.some(cliente =>
+        cliente.email === emailDigitado || cliente.telefone === telefoneDigitado
+    );
 
     if (usuarioJaExiste) {
-        alert("Atenção: Este E-mail ou Telefone já está cadastrado para outro usuário!");
+        alert("E-mail ou telefone já cadastrado!");
         return;
     }
 
-    const novoCliente = {
+    listaClientes.push({
         nome: nomeDigitado,
         email: emailDigitado,
         telefone: telefoneDigitado
-    };
+    });
 
-    listaClientes.push(novoCliente);
     localStorage.setItem('clientes', JSON.stringify(listaClientes));
 
-    inputs[0].value = "";
-    inputs[1].value = "";
-    inputs[2].value = "";
+    inputs.forEach(input => {
+    input.value = "";
+    input.classList.remove('erro', 'acerto');
+});
 
     alert("Cliente cadastrado com sucesso!");
 });
-

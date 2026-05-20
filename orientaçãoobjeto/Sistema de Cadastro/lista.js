@@ -1,17 +1,49 @@
-const corpoTabela = document.getElementById('corpo-tabela');
-
+const listaContainer = document.getElementById('lista-clientes');
 const listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
 
-listaClientes.forEach((cliente) => {
+listaClientes.forEach((cliente, index) => {
 
-    const linha = document.createElement('tr');
+    const card = document.createElement('div');
+    card.classList.add('card-cliente');
 
-    linha.innerHTML = `
-        <td>${cliente.nome}</td>
-        <td>${cliente.email}</td>
-        <td>${cliente.telefone}</td>
+    card.innerHTML = `
+        <h2>${cliente.nome}</h2>
+
+        <p><strong>E-mail:</strong> ${cliente.email}</p>
+
+        <p><strong>Telefone:</strong> ${cliente.telefone}</p>
+
+        <div class="acoes">
+            <button class="editar" data-index="${index}">✏</button>
+
+            <button class="deletar" data-index="${index}">✖</button>
+        </div>
     `;
 
-    corpoTabela.appendChild(linha);
+    card.addEventListener("click", function (event) {
 
+        if (event.target.classList.contains("deletar")) {
+
+            const indexDeletar = event.target.dataset.index;
+
+            listaClientes.splice(indexDeletar, 1);
+
+            localStorage.setItem("clientes", JSON.stringify(listaClientes));
+
+            location.reload();
+        }
+
+        if (event.target.classList.contains("editar")) {
+
+            const indexEditar = event.target.dataset.index;
+
+            localStorage.setItem("clienteEditar", indexEditar);
+
+            window.location.href = "editar.html";
+        }
+    });
+
+    if (listaContainer) {
+        listaContainer.appendChild(card);
+    }
 });
