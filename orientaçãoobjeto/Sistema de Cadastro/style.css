@@ -117,3 +117,42 @@
         border-bottom: 1px solid #dfe0ea; 
         font-size: 16px;
         }
+
+        @media (max-width: 709px), (max-height: 700px) {
+
+        .titulo {
+            font-size: 32px;
+            top: 30px;
+        }
+
+        .informacoes {
+            width: 90%;
+            height: auto;
+
+            padding: 25px;
+
+            top: 160px;
+        }
+
+        .informacoes h1,
+        .informacoes h2,
+        .informacoes h3 {
+            font-size: 18px;
+        }
+
+        .campo-resposta {
+            font-size: 15px;
+            padding: 12px;
+        }
+
+        .informacoes button {
+            width: 100%;
+
+            font-size: 18px;
+
+            padding: 12px;
+
+            margin-top: 30px;
+        }
+
+        }
