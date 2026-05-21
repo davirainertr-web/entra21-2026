@@ -23,7 +23,6 @@ body {
     justify-content: flex-start; 
 }
 
-/* 🔹 Títulos */
 .titulo, .subtitulo {
     font-size: 35px;
     font-weight: bold;
@@ -256,7 +255,6 @@ body {
     color: white;
 }
 
-/* Menu Container */
 .menu-container {
     background: white;
     width: 400px;
