@@ -118,16 +118,25 @@ if (document.querySelector(".cadastrar")) {
         const telefoneFormatado =
             `(${telefoneLimpo.slice(0, 2)}) ${telefoneLimpo.slice(2, 7)}-${telefoneLimpo.slice(7)}`;
 
-        const usuarioJaExiste = listaClientes.some(cliente =>
-            cliente.email === emailDigitado ||
+        const emailJaExiste = listaClientes.some(cliente =>
+        cliente.email === emailDigitado
+        );
+
+        const telefoneJaExiste = listaClientes.some(cliente =>
             cliente.telefone === telefoneFormatado
         );
 
-        if (usuarioJaExiste) {
+        if (emailJaExiste) {
             emailInput.classList.remove("acerto");
-            telefoneInput.classList.remove("acerto");
             emailInput.classList.add("erro");
+        }
+
+        if (telefoneJaExiste) {
+            telefoneInput.classList.remove("acerto");
             telefoneInput.classList.add("erro");
+        }
+
+        if (emailJaExiste || telefoneJaExiste) {
             return;
         }
 
@@ -335,16 +344,27 @@ if (document.getElementById("form-editar")) {
 
         const telefoneFormatated = `(${telefoneLimpo.slice(0, 2)}) ${telefoneLimpo.slice(2, 7)}-${telefoneLimpo.slice(7)}`;
 
-        const usuarioJaExiste = listaClientes.some((cliente, idx) => 
-            idx !== parseInt(indexEditar) && 
-            (cliente.email === emailDigitado || cliente.telefone === telefoneFormatated)
+        const emailJaExiste = listaClientes.some((cliente, idx) =>
+        idx !== parseInt(indexEditar) &&
+        cliente.email === emailDigitado
         );
 
-        if (usuarioJaExiste) {
+        const telefoneJaExiste = listaClientes.some((cliente, idx) =>
+            idx !== parseInt(indexEditar) &&
+            cliente.telefone === telefoneFormatated
+        );
+
+        if (emailJaExiste) {
             emailInput.classList.remove("acerto");
-            telefoneInput.classList.remove("acerto");
             emailInput.classList.add("erro");
+        }
+
+        if (telefoneJaExiste) {
+            telefoneInput.classList.remove("acerto");
             telefoneInput.classList.add("erro");
+        }
+
+        if (emailJaExiste || telefoneJaExiste) {
             return;
         }
 
