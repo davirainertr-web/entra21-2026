@@ -19,42 +19,48 @@
 
         <h1>Nome Completo</h1>
         <input type="text" class="campo-resposta" placeholder="ex: Hugo Moura" />
-        <span class="mensagem-erro" id="erro-nome"></span>
 
         <h2>Email</h2>
         <input type="text" class="campo-resposta" placeholder="ex: hugo@email.com" />
-        <span class="mensagem-erro" id="erro-email"></span>
 
         <h3>Telefone</h3>
         <input type="text" class="campo-resposta" placeholder="(11) 99999-9999" />
-        <span class="mensagem-erro" id="erro-telefone"></span>
 
         <h3>CEP</h3>
         <input type="text" class="campo-resposta" id="cep" placeholder="99999-999">
-        <span class="mensagem-erro" id="erro-cep"></span> 
 
         <div id="container-endereco" style="display: none; flex-direction: column; width: 100%;">
+
             <h3>Rua / Logradouro</h3>
-            <input type="text" id="rua" class="campo-resposta" placeholder="ex: Av. Paulista" />
+            <input type="text" id="rua" class="campo-resposta" />
 
             <h3>Bairro</h3>
-            <input type="text" id="bairro" class="campo-resposta" placeholder="ex: Centro" />
+            <input type="text" id="bairro" class="campo-resposta" />
 
             <h3>Cidade</h3>
-            <input type="text" id="cidade" class="campo-resposta" placeholder="ex: São Paulo" />
+            <input type="text" id="cidade" class="campo-resposta" />
 
             <h3>Estado (UF)</h3>
-            <input type="text" id="estado" class="campo-resposta" placeholder="ex: SP" />
+            <input type="text" id="estado" class="campo-resposta" />
+
         </div>
 
         <div class="grupo-botoes">
-            <button class="cadastrar">Cadastrar</button>
-            <a href="menu.html" class="voltar">← Voltar</a>
+
+            <button class="cadastrar">
+                Cadastrar
+            </button>
+
+            <a href="menu.html" class="voltar">
+                ← Voltar
+            </a>
+
         </div>
 
     </div>
 
     <script src="app.js"></script>
+
 </body>
 
 </html>

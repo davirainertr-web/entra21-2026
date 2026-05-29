@@ -1,386 +1,386 @@
-if (document.querySelector(".cadastrar")) {
+const paginasProtegidas = [
+    "lista.html",
+    "editar.html"
+];
 
-    let listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
+const paginaAtual =
+    window.location.pathname.split("/").pop();
 
-    const nomeInput = document.querySelector('.informacoes input:nth-of-type(1)');
-    const emailInput = document.querySelector('.informacoes input:nth-of-type(2)');
-    const telefoneInput = document.querySelector('.informacoes input:nth-of-type(3)');
-    const cepInput = document.getElementById("cep");
+const usuarioLogado =
+    localStorage.getItem("usuarioLogado");
 
-    const containerEndereco = document.getElementById("container-endereco");
-    const ruaInput = document.getElementById("rua");
-    const bairroInput = document.getElementById("bairro");
-    const cidadeInput = document.getElementById("cidade");
-    const estadoInput = document.getElementById("estado");
+if (
+    paginasProtegidas.includes(paginaAtual)
+    && !usuarioLogado
+) {
+    window.location.href = "acesso-negado.html";
+}
 
-    const botaoCadastrar = document.querySelector('.cadastrar');
+if (document.getElementById("login-email")) {
 
-    cepInput.addEventListener("input", async () => {
-        let valor = cepInput.value.replace(/\D/g, "").slice(0, 8);
+    const nomeInput =
+        document.getElementById("login-nome");
 
-        if (valor.length > 5) {
-            valor = valor.slice(0, 5) + "-" + valor.slice(5);
-        }
+    const emailInput =
+        document.getElementById("login-email");
 
-        cepInput.value = valor;
+    const botaoLogin =
+        document.querySelector(".login-btn");
 
-        const cepLimpo = valor.replace(/\D/g, "");
+    botaoLogin.addEventListener("click", () => {
 
-        if (cepLimpo.length !== 8) {
-            containerEndereco.style.display = "none";
-            cepInput.classList.remove("erro", "acerto");
+        const nome =
+            nomeInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const clientes =
+            JSON.parse(localStorage.getItem("clientes")) || [];
+
+        const usuario =
+            clientes.find(cliente =>
+
+                cliente.nome === nome &&
+                cliente.email === email
+
+            );
+
+        if (!usuario) {
+
+            alert("Usuário não encontrado");
+
             return;
         }
 
-        const endereco = await buscarCEP(cepLimpo);
+        localStorage.setItem(
+            "usuarioLogado",
+            JSON.stringify(usuario)
+        );
 
-        if (!endereco) {
-            cepInput.classList.remove("acerto");
-            cepInput.classList.add("erro");
-            containerEndereco.style.display = "none"; 
-        } else {
-            cepInput.classList.remove("erro");
-            cepInput.classList.add("acerto");
-
-            ruaInput.value = endereco.logradouro || "";
-            bairroInput.value = endereco.bairro || "";
-            cidadeInput.value = endereco.localidade || "";
-            estadoInput.value = endereco.uf || "";
-
-            containerEndereco.style.display = "flex";
-        }
+        window.location.href = "menu.html";
     });
+}
+
+if (document.getElementById("usuario-logado")) {
+
+    const usuario =
+        JSON.parse(localStorage.getItem("usuarioLogado"));
+
+    const topoUsuario =
+        document.getElementById("topo-usuario");
+
+    if (usuario) {
+
+        topoUsuario.style.display = "flex";
+
+        document.getElementById("usuario-logado")
+            .innerHTML = `Olá, ${usuario.nome}`;
+
+    } else {
+
+        topoUsuario.style.display = "none";
+    }
+}
+
+if (document.getElementById("logout")) {
+
+    document.getElementById("logout")
+        .addEventListener("click", () => {
+
+            localStorage.removeItem("usuarioLogado");
+
+            window.location.href = "login.html";
+        });
+}
+
+if (document.getElementById("cep")) {
+
+    let listaClientes =
+        JSON.parse(localStorage.getItem("clientes")) || [];
+
+    const inputs =
+        document.querySelectorAll(".campo-resposta");
+
+    const nomeInput = inputs[0];
+    const emailInput = inputs[1];
+    const telefoneInput = inputs[2];
+
+    const cepInput =
+        document.getElementById("cep");
+
+    const ruaInput =
+        document.getElementById("rua");
+
+    const bairroInput =
+        document.getElementById("bairro");
+
+    const cidadeInput =
+        document.getElementById("cidade");
+
+    const estadoInput =
+        document.getElementById("estado");
+
+    const containerEndereco =
+        document.getElementById("container-endereco");
+
+    const botaoCadastrar =
+        document.querySelector(".cadastrar");
 
     telefoneInput.addEventListener("input", () => {
-        let valor = telefoneInput.value.replace(/\D/g, "").slice(0, 11);
 
-        if (valor.length > 0) valor = "(" + valor;
-        if (valor.length > 3) valor = valor.slice(0, 3) + ") " + valor.slice(3);
-        if (valor.length > 10) valor = valor.slice(0, 10) + "-" + valor.slice(10);
+        let valor =
+            telefoneInput.value.replace(/\D/g, "");
+
+        valor = valor.slice(0, 11);
+
+        if (valor.length > 10) {
+
+            valor =
+                `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7)}`;
+
+        }
 
         telefoneInput.value = valor;
     });
 
-    async function buscarCEP(cep) {
-        try {
-            const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-            const dados = await resposta.json();
-            if (dados.erro) return null; 
-            return dados;
-        } catch (error) {
-            return null;
-        }
-    }
+    cepInput.addEventListener("input", async () => {
 
-    botaoCadastrar.addEventListener("click", async () => {
+        let valor =
+            cepInput.value.replace(/\D/g, "");
 
-        const nomeDigitado = nomeInput.value.trim();
-        const emailDigitado = emailInput.value.trim();
-        const telefoneDigitado = telefoneInput.value.trim();
-        const cepDigitado = cepInput.value.trim();
-        const cepLimpo = cepDigitado.replace(/\D/g, "");
+        valor = valor.slice(0, 8);
 
-        const telefoneLimpo = telefoneDigitado.replace(/\D/g, "");
-        let formularioValido = true;
+        if (valor.length > 5) {
 
-        [nomeInput, emailInput, telefoneInput, cepInput].forEach(i => {
-            i.classList.remove("erro", "acerto");
-        });
-
-        if (nomeDigitado === "" || nomeDigitado.split(" ").length < 2) {
-            nomeInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            nomeInput.classList.add("acerto");
+            valor =
+                valor.slice(0, 5) + "-" + valor.slice(5);
         }
 
-        if (emailDigitado === "" || !emailDigitado.includes("@")) {
-            emailInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            emailInput.classList.add("acerto");
-        }
+        cepInput.value = valor;
 
-        if (telefoneLimpo.length !== 11) {
-            telefoneInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            telefoneInput.classList.add("acerto");
-        }
+        const cepLimpo =
+            valor.replace(/\D/g, "");
 
-        if (cepLimpo.length !== 8 || cepInput.classList.contains("erro")) {
-            cepInput.classList.add("erro");
-            formularioValido = false;
-        }
+        if (cepLimpo.length !== 8) {
 
-        if (!formularioValido) return;
+            containerEndereco.style.display = "none";
 
-        const telefoneFormatado =
-            `(${telefoneLimpo.slice(0, 2)}) ${telefoneLimpo.slice(2, 7)}-${telefoneLimpo.slice(7)}`;
-
-        const emailJaExiste = listaClientes.some(cliente =>
-        cliente.email === emailDigitado
-        );
-
-        const telefoneJaExiste = listaClientes.some(cliente =>
-            cliente.telefone === telefoneFormatado
-        );
-
-        if (emailJaExiste) {
-            emailInput.classList.remove("acerto");
-            emailInput.classList.add("erro");
-        }
-
-        if (telefoneJaExiste) {
-            telefoneInput.classList.remove("acerto");
-            telefoneInput.classList.add("erro");
-        }
-
-        if (emailJaExiste || telefoneJaExiste) {
             return;
         }
 
-        const novoCliente = {
-            nome: nomeDigitado,
-            email: emailDigitado,
-            telefone: telefoneFormatado,
-            cep: cepDigitado,
-            rua: ruaInput.value.trim(),
-            bairro: bairroInput.value.trim(),
-            cidade: cidadeInput.value.trim(),
-            estado: estadoInput.value.trim(),
-            ddd: telefoneLimpo.slice(0, 2)
+        try {
+
+            const resposta =
+                await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+
+            const dados =
+                await resposta.json();
+
+            if (dados.erro) return;
+
+            ruaInput.value =
+                dados.logradouro;
+
+            bairroInput.value =
+                dados.bairro;
+
+            cidadeInput.value =
+                dados.localidade;
+
+            estadoInput.value =
+                dados.uf;
+
+            containerEndereco.style.display = "flex";
+
+        } catch (erro) {
+
+            console.log(erro);
+        }
+    });
+
+    botaoCadastrar.addEventListener("click", () => {
+
+        const nome =
+            nomeInput.value.trim();
+
+        const email =
+            emailInput.value.trim();
+
+        const telefone =
+            telefoneInput.value.trim();
+
+        const cep =
+            cepInput.value.trim();
+
+        if (
+            nome === "" ||
+            email === "" ||
+            telefone === "" ||
+            cep === ""
+        ) {
+
+            alert("Preencha todos os campos");
+
+            return;
+        }
+
+        const cliente = {
+
+            nome,
+            email,
+            telefone,
+            cep,
+
+            rua: ruaInput.value,
+            bairro: bairroInput.value,
+            cidade: cidadeInput.value,
+            estado: estadoInput.value
         };
 
-        listaClientes.push(novoCliente);
-        localStorage.setItem("clientes", JSON.stringify(listaClientes));
+        listaClientes.push(cliente);
 
-        nomeInput.value = "";
-        emailInput.value = "";
-        telefoneInput.value = "";
-        cepInput.value = "";
+        localStorage.setItem(
+            "clientes",
+            JSON.stringify(listaClientes)
+        );
 
-        ruaInput.value = "";
-        bairroInput.value = "";
-        cidadeInput.value = "";
-        estadoInput.value = "";
+        alert("Cliente cadastrado!");
 
-        containerEndereco.style.display = "none";
-        
-        [nomeInput, emailInput, telefoneInput, cepInput].forEach(i => i.classList.remove("acerto"));
+        window.location.reload();
     });
 }
 
 if (document.getElementById("lista-clientes")) {
 
-    const listaContainer = document.getElementById('lista-clientes');
-    let listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
+    const listaContainer =
+        document.getElementById("lista-clientes");
+
+    let listaClientes =
+        JSON.parse(localStorage.getItem("clientes")) || [];
 
     listaClientes.forEach((cliente, index) => {
 
-        const card = document.createElement('div');
-        card.classList.add('card-cliente');
+        const card =
+            document.createElement("div");
+
+        card.classList.add("card-cliente");
 
         card.innerHTML = `
             <h2>${cliente.nome}</h2>
 
-            <p><strong>E-mail:</strong> ${cliente.email}</p>
+            <p><strong>Email:</strong> ${cliente.email}</p>
+
             <p><strong>Telefone:</strong> ${cliente.telefone}</p>
+
             <p><strong>CEP:</strong> ${cliente.cep}</p>
 
-            <button class="mostrar-endereco">
-                ▼ Ver endereço
-            </button>
-
-            <div class="detalhes-endereco">
-                <p><strong>Rua:</strong> ${cliente.rua || "Não informada"}</p>
-                <p><strong>Bairro:</strong> ${cliente.bairro || "Não informado"}</p>
-                <p><strong>Cidade:</strong> ${cliente.cidade || "Não informada"}</p>
-                <p><strong>Estado:</strong> ${cliente.estado || "Não informado"}</p>
-                <p><strong>DDD:</strong> ${cliente.ddd || "--"}</p>
-            </div>
-
             <div class="card-footer">
-                <span>Cliente #${index + 1}</span>
+
                 <div class="acoes">
-                    <button class="editar" data-index="${index}" title="Editar">✏</button>
-                    <button class="deletar" data-index="${index}" title="Deletar">✖</button>
+
+                    <button class="editar" data-index="${index}">
+                        ✏
+                    </button>
+
+                    <button class="deletar" data-index="${index}">
+                        ✖
+                    </button>
+
                 </div>
+
             </div>
         `;
 
-        const botaoCep = card.querySelector(".mostrar-endereco");
-        const dadosCep = card.querySelector(".detalhes-endereco");
-
-        dadosCep.style.display = "none";
-
-        botaoCep.addEventListener("click", () => {
-            if (dadosCep.style.display === "none") {
-                dadosCep.style.display = "block";
-                botaoCep.innerHTML = "▲ Ocultar endereço";
-            } else {
-                dadosCep.style.display = "none";
-                botaoCep.innerHTML = "▼ Ver endereço";
-            }
-        });
-
-        card.addEventListener("click", function (event) {
-            if (event.target.classList.contains("deletar")) {
-                const indexDeletar = event.target.dataset.index;
-                listaClientes.splice(indexDeletar, 1);
-                localStorage.setItem("clientes", JSON.stringify(listaClientes));
-                location.reload();
-            }
-
-            if (event.target.classList.contains("editar")) {
-                const indexEditar = event.target.dataset.index;
-                localStorage.setItem("clienteEditar", indexEditar);
-                window.location.href = "editar.html";
-            }
-        });
-
         listaContainer.appendChild(card);
+    });
+
+    document.addEventListener("click", (event) => {
+
+        if (event.target.classList.contains("deletar")) {
+
+            const index =
+                event.target.dataset.index;
+
+            listaClientes.splice(index, 1);
+
+            localStorage.setItem(
+                "clientes",
+                JSON.stringify(listaClientes)
+            );
+
+            location.reload();
+        }
+
+        if (event.target.classList.contains("editar")) {
+
+            const index =
+                event.target.dataset.index;
+
+            localStorage.setItem(
+                "clienteEditar",
+                index
+            );
+
+            window.location.href =
+                "editar.html";
+        }
     });
 }
 
 if (document.getElementById("form-editar")) {
-    const formEditar = document.getElementById("form-editar");
-    let listaClientes = JSON.parse(localStorage.getItem('clientes')) || [];
-    const indexEditar = localStorage.getItem("clienteEditar");
 
-    const nomeInput = document.getElementById("editar-nome");
-    const emailInput = document.getElementById("editar-email");
-    const telefoneInput = document.getElementById("editar-telefone");
-    const cepInput = document.getElementById("editar-cep");
+    const index =
+        localStorage.getItem("clienteEditar");
 
-    if (indexEditar !== null && listaClientes[indexEditar]) {
-        const cliente = listaClientes[indexEditar];
+    let listaClientes =
+        JSON.parse(localStorage.getItem("clientes")) || [];
 
-        nomeInput.value = cliente.nome;
-        emailInput.value = cliente.email;
-        telefoneInput.value = cliente.telefone;
-        cepInput.value = cliente.cep || "";
-    }
+    const cliente =
+        listaClientes[index];
 
-    cepInput.addEventListener("input", () => {
-        let valor = cepInput.value.replace(/\D/g, "").slice(0, 8);
-        if (valor.length > 5) valor = valor.slice(0, 5) + "-" + valor.slice(5);
-        cepInput.value = valor;
-    });
+    const nomeInput =
+        document.getElementById("editar-nome");
 
-    telefoneInput.addEventListener("input", () => {
-        let valor = telefoneInput.value.replace(/\D/g, "").slice(0, 11);
-        if (valor.length > 0) valor = "(" + valor;
-        if (valor.length > 3) valor = valor.slice(0, 3) + ") " + valor.slice(3);
-        if (valor.length > 10) valor = valor.slice(0, 10) + "-" + valor.slice(10);
-        telefoneInput.value = valor;
-    });
+    const emailInput =
+        document.getElementById("editar-email");
 
-    async function buscarCEPEditar(cep) {
-        try {
-            const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-            const dados = await resposta.json();
-            if (dados.erro) return null;
-            return dados;
-        } catch (error) {
-            return null;
-        }
-    }
+    const telefoneInput =
+        document.getElementById("editar-telefone");
 
-    formEditar.addEventListener("submit", async (e) => {
-        e.preventDefault();
+    const cepInput =
+        document.getElementById("editar-cep");
 
-        const nomeDigitado = nomeInput.value.trim();
-        const emailDigitado = emailInput.value.trim();
-        const telefoneDigitado = telefoneInput.value.trim();
-        const cepDigitado = cepInput.value.trim();
+    nomeInput.value = cliente.nome;
+    emailInput.value = cliente.email;
+    telefoneInput.value = cliente.telefone;
+    cepInput.value = cliente.cep;
 
-        const telefoneLimpo = telefoneDigitado.replace(/\D/g, "");
-        const cepLimpo = cepDigitado.replace(/\D/g, "");
+    document.getElementById("form-editar")
+        .addEventListener("submit", (event) => {
 
-        let formularioValido = true;
+            event.preventDefault();
 
-        [nomeInput, emailInput, telefoneInput, cepInput].forEach(i => {
-            i.classList.remove("erro", "acerto");
+            listaClientes[index].nome =
+                nomeInput.value;
+
+            listaClientes[index].email =
+                emailInput.value;
+
+            listaClientes[index].telefone =
+                telefoneInput.value;
+
+            listaClientes[index].cep =
+                cepInput.value;
+
+            localStorage.setItem(
+                "clientes",
+                JSON.stringify(listaClientes)
+            );
+
+            alert("Cliente atualizado!");
+
+            window.location.href =
+                "lista.html";
         });
-
-        if (nomeDigitado === "" || nomeDigitado.split(" ").length < 2) {
-            nomeInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            nomeInput.classList.add("acerto");
-        }
-
-        if (emailDigitado === "" || !emailDigitado.includes("@")) {
-            emailInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            emailInput.classList.add("acerto");
-        }
-
-        if (telefoneLimpo.length !== 11) {
-            telefoneInput.classList.add("erro");
-            formularioValido = false;
-        } else {
-            telefoneInput.classList.add("acerto");
-        }
-
-        if (cepLimpo.length !== 8) {
-            cepInput.classList.add("erro");
-            formularioValido = false;
-        }
-
-        if (!formularioValido) return;
-
-        const endereco = await buscarCEPEditar(cepLimpo);
-
-        if (!endereco) {
-            cepInput.classList.remove("acerto");
-            cepInput.classList.add("erro");
-            return; 
-        } else {
-            cepInput.classList.add("acerto");
-        }
-
-        const telefoneFormatated = `(${telefoneLimpo.slice(0, 2)}) ${telefoneLimpo.slice(2, 7)}-${telefoneLimpo.slice(7)}`;
-
-        const emailJaExiste = listaClientes.some((cliente, idx) =>
-        idx !== parseInt(indexEditar) &&
-        cliente.email === emailDigitado
-        );
-
-        const telefoneJaExiste = listaClientes.some((cliente, idx) =>
-            idx !== parseInt(indexEditar) &&
-            cliente.telefone === telefoneFormatated
-        );
-
-        if (emailJaExiste) {
-            emailInput.classList.remove("acerto");
-            emailInput.classList.add("erro");
-        }
-
-        if (telefoneJaExiste) {
-            telefoneInput.classList.remove("acerto");
-            telefoneInput.classList.add("erro");
-        }
-
-        if (emailJaExiste || telefoneJaExiste) {
-            return;
-        }
-
-        listaClientes[indexEditar] = {
-            nome: nomeDigitado,
-            email: emailDigitado,
-            telefone: telefoneFormatated,
-            cep: cepDigitado,
-            rua: endereco.logradouro || "",
-            bairro: endereco.bairro || "",
-            cidade: endereco.localidade || "",
-            estado: endereco.uf || "",
-            ddd: endereco.ddd || ""
-        };
-
-        localStorage.setItem("clientes", JSON.stringify(listaClientes));
-        window.location.href = "lista.html"; 
-    });
 }
