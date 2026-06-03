@@ -74,6 +74,12 @@
         <button onclick="amarelo()">Amarelo</button>
         <button onclick="rosa()">Rosa</button>
 
+        <section>
+            <h1> Carregando </h1>
+            <button onclick="Carregar()">Carregar</button>
+            <p id="botaocarregar"></p>
+        </section>
+
         <br>
         <hr>
 
@@ -156,6 +162,13 @@
                 let lista = document.getElementById('lista')
                 lista.innerHTML += `
                 <p>${item.value}</p>`
+            }
+            
+            function Carregar() {
+                document.getElementById('botaocarregar').innerHTML=`Carregando...`
+                setTimeout(() => {
+                    document.getElementById('botaocarregar').innerHTML=`Carregado.`
+                }, 3000)
             }
                 
         </script>
