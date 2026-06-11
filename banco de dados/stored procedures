@@ -1,0 +1,140 @@
+	use davi;
+
+	drop table if exists tb_jogadores;
+	drop procedure if exists listaJogadores;
+    drop procedure if exists cadastrarJogador;
+    drop procedure if exists totalJogadores;
+    drop procedure if exists verificarGer;
+    drop procedure if exists contar;
+	drop procedure if exists adicionarGer;
+
+	create table tb_jogadores (
+			id_jogadores Int primary Key auto_increment,
+			nome Varchar(100) Not null,
+			times_selecoes Varchar(25) not null,
+			posicao Varchar(15) not null,
+            ger INT(3) 
+		);
+
+	DELIMITER $$
+
+	create procedure listaJogadores()
+	Begin
+		select * from tb_jogadores;
+		
+	end $$
+	DELIMITER ;
+
+	Insert Into tb_jogadores(nome, times_selecoes, posicao, ger) Values
+		('Andres', 'Colombia', 'PD_PE', 88),
+		('Vegetti', 'Cerro Portenho', 'ST', 90),
+		('Coutinho', 'sem time', 'MEI', 0),
+		('Thiago Mendes', 'Vasco', 'VOL', 85),
+		('Barros', 'américa mg', 'VOL', 83);
+			
+	DELIMITER $$
+
+	Create procedure cadastrarJogador(
+		In p_nome varchar(100),
+		In p_times_selecoes varchar(25),
+		in p_posicao varchar(15),
+        in p_ger INT
+	)
+	Begin
+		insert into tb_jogadores(nome, times_selecoes, posicao, ger)
+		values(p_nome, p_times_selecoes, p_posicao, p_ger);	
+		
+	END $$
+
+	DELIMITER ;
+
+	call cadastrarJogador('Leo Jardim', 'Vasco da Gama', 'GOL', 93);
+    
+	call listaJogadores();
+    
+DELIMITER $$
+
+create procedure totalJogadores(
+out quantidade int )
+Begin
+	
+    select count(*) INTO quantidade
+    From tb_jogadores;
+    
+END $$
+
+Delimiter ;
+
+Call totalJogadores(@total);
+
+select @total;
+
+DELIMITER $$
+
+create procedure verificarGer(
+In p_ger INT )
+Begin
+IF p_ger >= 83 then
+select 'ger alto';
+else
+select 'ger baixo';
+end if;
+END $$
+DELIMITER ;
+
+Call verificarGer(88);
+
+
+DELIMITER $$
+
+Create procedure contar()
+begin
+DECLARE i int default 1;
+While i <= 5 do 
+select i;
+set i = i + 1;
+END while;
+end $$
+DELIMITER ;
+
+call contar();
+
+DELIMITER $$
+
+CREATE PROCEDURE adicionarGer(
+    IN p_nome VARCHAR(100),
+    IN p_ger INT
+)
+BEGIN
+
+    DECLARE gerAtual INT;
+
+    SELECT ger
+    INTO gerAtual
+    FROM tb_jogadores
+    WHERE nome = p_nome;
+
+    IF gerAtual IS NULL THEN
+
+        INSERT INTO ger(nome, ger)
+        VALUES(p_nome, p_ger);
+
+    ELSE
+
+        UPDATE tb_jogadores
+        SET ger = ger + p_ger
+        WHERE nome = p_nome;
+
+    END IF;
+
+END $$
+
+DELIMITER ;
+
+set sql_safe_updates=0;
+
+call adicionarGer('Andres', 1);
+select * from tb_jogadores;
+
+show procedure status;
+show create procedure listaJogadores;
