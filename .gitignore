@@ -1,1 +1,8 @@
-projeto-entra21-2026/
+# Arquivos de configuração local do Eclipse
+.settings/
+.project
+.classpath
+
+# Arquivos do sistema operacional
+Thumbs.db
+.DS_Store
