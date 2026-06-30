@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cadastro</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="cadastro-body">
+
+    <div class="titulo">
+        Cadastro de Clientes
+    </div>
+
+    <div class="informacoes">
+
+        <h1>Nome Completo</h1>
+        <input type="text" class="campo-resposta" placeholder="ex: Hugo Moura" />
+
+        <h2>Email</h2>
+        <input type="text" class="campo-resposta" placeholder="ex: hugo@email.com" />
+
+        <h3>Telefone</h3>
+        <input type="text" class="campo-resposta" placeholder="(11) 99999-9999" />
+
+        <h3>CEP</h3>
+        <input type="text" class="campo-resposta" id="cep" placeholder="99999-999">
+
+        <div id="container-endereco" style="display: none; flex-direction: column; width: 100%;">
+
+            <h3>Rua / Logradouro</h3>
+            <input type="text" id="rua" class="campo-resposta" />
+
+            <h3>Bairro</h3>
+            <input type="text" id="bairro" class="campo-resposta" />
+
+            <h3>Cidade</h3>
+            <input type="text" id="cidade" class="campo-resposta" />
+
+            <h3>Estado (UF)</h3>
+            <input type="text" id="estado" class="campo-resposta" />
+
+        </div>
+
+        <div class="grupo-botoes">
+
+            <button class="cadastrar">
+                Cadastrar
+            </button>
+
+            <a href="menu.html" class="voltar">
+                ← Voltar
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="../js/app.js"></script>
+
+</body>
+
+</html>
