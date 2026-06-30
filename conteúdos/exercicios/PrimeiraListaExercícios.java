@@ -244,9 +244,6 @@ public class PrimeiraListaExercícios {
          double resultado;
          resultado = preco * quantidade;
          
-         System.out.println("o valor total da sua compra foi: R$" + resultado);
-         
-    	   
+         System.out.println("o valor total da sua compra foi: R$" + resultado);   
        }
 }
-
