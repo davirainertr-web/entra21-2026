@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import javax.swing.Spring;
 import java.text.DecimalFormat;
 
 public class ListaExerciciosDesvioCondicional {

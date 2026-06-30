@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class listaExercicio1 {
+public class PrimeiraListaExercícios {
 
 	public static void main(String[] args) {
        //exercicio1();
@@ -165,7 +165,7 @@ public class listaExercicio1 {
        	 System.out.println("Olá " + nome);
        	 System.out.println("Você tem: " + idade + " anos");
        	
-       	
+
         }
          static void exercicio14() {
        	
