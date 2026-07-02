@@ -10,10 +10,17 @@ Este repositório foi criado para armazenar e organizar todos os projetos, exerc
 * **MySQL**
 
 ## 📂 Estrutura do Repositório
-* `conteudos-java/`: Pasta principal contendo as atividades separadas por módulos ou tópicos.
-* `Conteudos/Projetos-HTML-CSS-JS`: Conteúdos abordados em sala sobre HTML, CSS e JS, juntamente com alguns projetos produzidos com o uso dessas tecnologias.
-* `Jogos-da-Velha`: Atividade desenvolvida em sala de aula, implementada tanto em ambiente Web quanto em Java Desktop.
-* `Banco-de-Dados`: Conteúdos e scripts de banco de dados abordados em sala.
+  Main:
+* `conteúdos`: Pasta principal contendo as atividades separadas por módulos ou tópicos;
+* `Exercicios Orientação Objeto`: Conteúdos abordados em sala sobre HTML, CSS e JS, juntamente com alguns projetos produzidos com o uso dessas tecnologias;
+* `Projetos`: Atividade desenvolvida em sala de aula, implementada tanto em ambiente Web quanto em Java Desktop;
+* `Responsividade`: Conteúdos e scripts de banco de dados abordados em sala.
+
+Jogos-da-Velha
+* `Jogos da velha`: 2 arquivos, um jogo em JAVA e outro em HTML.
+
+Banco-de-dados
+*`banco de dados`: Pasta contendo alguns conteúdos de banco de dados.
 
 ## 💻 Principais Tópicos Estudados
 
