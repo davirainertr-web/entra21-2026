@@ -10,7 +10,8 @@ Este repositório foi criado para armazenar e organizar todos os projetos, exerc
 * **MySQL**
 
 ## 📂 Estrutura do Repositório
-Main:
+
+  Main:
 * `conteúdos`: Pasta principal contendo as atividades separadas por tópicos;
 * `Exercicios-orientação-objeto/src`: Lista de exercícios passada em sala sobre OOP;
 * `Projetos`: Atividades desenvolvidas em sala de aula, implementada tanto em ambiente Web quanto em Java Desktop;
