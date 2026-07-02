@@ -20,7 +20,7 @@ Este repositório foi criado para armazenar e organizar todos os projetos, exerc
 * `Jogos da velha`: 2 arquivos, um jogo em JAVA e outro em HTML.
 
   Banco-de-dados:
-*`banco de dados`: Pasta contendo alguns conteúdos de banco de dados.
+* `banco de dados`: Pasta contendo alguns conteúdos de banco de dados.
 
 ## 💻 Principais Tópicos Estudados
 
