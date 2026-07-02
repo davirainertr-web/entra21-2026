@@ -13,17 +13,16 @@ public class ContaBancaria {
     }
 
     public void depositar(double valor) {
-        if (valor>0) {
+        if (valor > 0) {
             saldo += valor;
             System.out.println("Depósito de R$" + valor + " realizado com sucesso");
-        }
-        else {
+        } else {
             System.out.println("você precisa depositar um valor maior que zero");
         }
     }
 
     public void sacar(double valor) {
-        if(valor <= saldo) {
+        if (valor <= saldo) {
             saldo -= valor;
             System.out.println("saldo de R$" + valor + "realizado com sucesso");
         }

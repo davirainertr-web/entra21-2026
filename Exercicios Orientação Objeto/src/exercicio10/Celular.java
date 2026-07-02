@@ -11,7 +11,7 @@ public class Celular {
 
     public void carregar() {
         bateria += 10;
-        if (bateria > 100){
+        if (bateria > 100) {
             bateria = 100;
         }
     }

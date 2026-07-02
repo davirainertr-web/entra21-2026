@@ -7,7 +7,7 @@ public class Livro {
 
     public Livro(String titulo, String autor, int quantidadeDisponível) {
         this.titulo = titulo;
-        this. autor = autor;
+        this.autor = autor;
         this.quantidadeDisponivel = quantidadeDisponível;
     }
 
@@ -19,12 +19,12 @@ public class Livro {
             System.out.println("Livro não está disponível para empréstimo.");
         }
     }
- 
+
     public void devolverLivro() {
         quantidadeDisponivel++;
         System.out.println("Livro devolvido com sucesso.");
     }
- 
+
     public void exibirLivro() {
         System.out.println("Informações do Livro");
         System.out.println("Título: " + titulo);
@@ -32,4 +32,3 @@ public class Livro {
         System.out.println("Quantidade disponível: " + quantidadeDisponivel);
     }
 }
- 

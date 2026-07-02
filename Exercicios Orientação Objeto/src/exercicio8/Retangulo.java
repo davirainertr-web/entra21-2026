@@ -6,7 +6,7 @@ public class Retangulo {
 
     public Retangulo(double altura, double largura) {
         this.altura = altura;
-        this. largura = largura;
+        this.largura = largura;
     }
 
     public double calcularArea() {

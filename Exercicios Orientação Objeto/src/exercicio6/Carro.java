@@ -12,26 +12,24 @@ public class Carro {
     }
 
     public void acelerar(double velocidade) {
-        if(velocidade > 0) {
+        if (velocidade > 0) {
             this.velocidadeAtual += velocidade;
-        }
-        else {
+        } else {
             System.out.println("Acelerando " + velocidade + " km/h");
         }
     }
 
     public void frear(double velocidade) {
-        if(velocidade > 0) {
+        if (velocidade > 0) {
             this.velocidadeAtual -= velocidade;
-            if(velocidadeAtual <0) {
+            if (velocidadeAtual < 0) {
                 velocidadeAtual = 0;
             }
             System.out.println("Freando " + velocidade + " km/h");
-        }  
-    } 
-    
+        }
+    }
+
     public void exibirVelocidade() {
         System.out.println("Velocidade atual: " + velocidadeAtual + " km/h");
     }
 }
-

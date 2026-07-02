@@ -6,6 +6,6 @@ public class Principal {
 
         veiculo.alugar();
         veiculo.devolver();
-         veiculo.Informações();
+        veiculo.Informações();
     }
 }

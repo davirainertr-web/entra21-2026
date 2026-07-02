@@ -19,7 +19,8 @@ public class Livro {
             System.out.println("Livro não está disponível para empréstimo.");
         }
     }
-     public void devolver() {
+
+    public void devolver() {
         if (!disponivel) {
             disponivel = true;
             System.out.println("Livro devolvido com sucesso.");

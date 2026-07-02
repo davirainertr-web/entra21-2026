@@ -1,7 +1,7 @@
 package desafio2;
 
 public class Veiculo {
-    private String placa; 
+    private String placa;
     private String modelo;
     private int ano;
     private boolean disponivel;
@@ -9,8 +9,8 @@ public class Veiculo {
     public Veiculo(String placa, String modelo, int ano, boolean disponivel) {
         this.placa = placa;
         this.modelo = modelo;
-        this. ano = ano;
-        this. disponivel = true;
+        this.ano = ano;
+        this.disponivel = true;
     }
 
     public void alugar() {
@@ -39,4 +39,3 @@ public class Veiculo {
         System.out.println("Disponível: " + (disponivel ? "Sim" : "Não"));
     }
 }
-

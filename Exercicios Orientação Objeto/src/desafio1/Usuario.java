@@ -9,7 +9,7 @@ public class Usuario {
         this.matricula = matricula;
     }
 
-     public void exibirUsuario() {
+    public void exibirUsuario() {
         System.out.println("Informações do Usuráio");
         System.out.println("Nome: " + nome);
         System.out.println("Matrícula: " + matricula);
