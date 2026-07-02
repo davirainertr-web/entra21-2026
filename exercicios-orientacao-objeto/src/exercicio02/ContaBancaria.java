@@ -1,4 +1,4 @@
-package exercicio2;
+package exercicio02;
 
 public class ContaBancaria {
 

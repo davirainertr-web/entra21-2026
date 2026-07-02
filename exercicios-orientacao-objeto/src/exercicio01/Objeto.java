@@ -1,4 +1,4 @@
-package exercicio1;
+package exercicio01;
 
 public class Objeto {
 

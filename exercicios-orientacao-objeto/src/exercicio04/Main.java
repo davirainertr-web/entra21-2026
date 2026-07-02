@@ -1,4 +1,4 @@
-package exercicio4;
+package exercicio04;
 
 public class Main {
 

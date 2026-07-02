@@ -1,9 +1,9 @@
-package exercicio2;
+package exercicio02;
 
 public class principal {
     public static void main(String[] args) {
 
-        ContaBancaria conta = new ContaBancaria("12345-6", "João Silva");
+        ContaBancaria conta = new ContaBancaria("56251-96", "Pablo Vegetti");
 
         conta.depositar(1000);
         conta.sacar(300);

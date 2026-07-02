@@ -1,4 +1,4 @@
-package exercicio8;
+package exercicio08;
 
 public class Retangulo {
     double largura;

@@ -1,4 +1,4 @@
-package exercicio9;
+package exercicio09;
 
 public class ArCondicionado {
 

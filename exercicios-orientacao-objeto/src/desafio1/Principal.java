@@ -7,6 +7,8 @@ public class Principal {
 
         Usuario usuario = new Usuario("Pedro Henrique", 17867);
 
+        usuario.exibirUsuario();
+
         livro.emprestarLivro();
         livro2.emprestarLivro();
 

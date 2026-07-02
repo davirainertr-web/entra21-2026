@@ -1,4 +1,4 @@
-package exercicio7;
+package exercicio07;
 
 public class lampada {
     private boolean ligada;
