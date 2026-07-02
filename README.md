@@ -11,10 +11,10 @@ Este repositório foi criado para armazenar e organizar todos os projetos, exerc
 
 ## 📂 Estrutura do Repositório
   Main:
-* `conteúdos`: Pasta principal contendo as atividades separadas por módulos ou tópicos;
-* `Exercicios Orientação Objeto`: Conteúdos abordados em sala sobre HTML, CSS e JS, juntamente com alguns projetos produzidos com o uso dessas tecnologias;
-* `Projetos`: Atividade desenvolvida em sala de aula, implementada tanto em ambiente Web quanto em Java Desktop;
-* `Responsividade`: Conteúdos e scripts de banco de dados abordados em sala.
+* `conteúdos`: Pasta principal contendo as atividades separadas por tópicos;
+* `Exercicios-orientação-objeto/src`: Lista de exercícios passada em sala sobre OOP;
+* `Projetos`: Atividades desenvolvidas em sala de aula, implementada tanto em ambiente Web quanto em Java Desktop;
+* `Responsividade`: Exemplos práticos de layouts adaptáveis usando CSS Media Queries e Flexbox, cobrindo mudança dinâmica de cores, menu de navegação mobile e grid flexível de colunas.
 
 Jogos-da-Velha
 * `Jogos da velha`: 2 arquivos, um jogo em JAVA e outro em HTML.
