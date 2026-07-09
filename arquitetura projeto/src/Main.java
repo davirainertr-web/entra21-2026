@@ -7,6 +7,6 @@ public static void main(String[] args) {
 
     ProdutoDao dao = new ProdutoDao();
     Produto retorno = dao.salvar(p1);
-    System.out.println(retorno.getId() + " " + retorno.getDescricao());
+     System.out.println(retorno.getId() + " - " + retorno.getDescricao());
  }
 }
