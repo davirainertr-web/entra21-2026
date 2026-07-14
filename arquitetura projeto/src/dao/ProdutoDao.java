@@ -64,10 +64,24 @@ public class ProdutoDao implements ICRUD {
         }
     }
 
-    @Override
-    public void alterar(Produto prod) {
-        System.out.println("alterando produto: " + prod.getId());
-    }
+      @Override
+	public void alterar(Produto prod) {
+        String sql = "update tb_produtos set descricao = ?, preco = ? where id = ?";
+		
+		Connection con = ConectaDB.conectar();
+		try {
+			PreparedStatement stm = con.prepareStatement(sql);
+			stm.setString(1, prod.getDescricao());
+			stm.setDouble(2, prod.getPreco());
+			stm.setInt(3, prod.getId());
+			stm.execute();			
+			
+			stm.close();
+			con.close();			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
 
     @Override
     public Produto consultar(int id) {
