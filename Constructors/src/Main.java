@@ -4,7 +4,7 @@ public class Main {
 	public static void main(String[] args) {
 	  // Produto p = new Produto();
 	   //Produto p = new Produto(1,"Milho");
-		Produto p = new Produto(1,"Milho",0);
+		Produto p = new Produto(1,"Milho",1.0);
 	   System.out.println(p);
 	   
 	  // p.setId(1);
