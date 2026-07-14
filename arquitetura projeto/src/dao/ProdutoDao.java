@@ -1,5 +1,8 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import interfaces.ICRUD;
@@ -11,11 +14,23 @@ public class ProdutoDao implements ICRUD {
 
     @Override
     public Produto salvar(Produto prod) {
-        if(ConectaDB.conectar() != null) {
-            System.out.println("conectado");
+        String sql = "insert into tb_produtos(descricao, preco) values(?,?)";
+
+        Connection con = ConectaDB.conectar();
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, prod.getDescricao());
+            stm.setDouble(2, prod.getPreco());
+            stm.execute();
+
+            stm.close();;
+            con.close();
+
+            return prod;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
-        prod.setId(1);
-        return prod;
     }
 
     @Override

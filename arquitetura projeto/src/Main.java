@@ -3,7 +3,7 @@ import modelos.Produto;
 
 public class Main {
 public static void main(String[] args) {
-    Produto p1 = new Produto("Milho", 20.85);
+    Produto p1 = new Produto("Feijão", 10.85);
 
     ProdutoDao dao = new ProdutoDao();
     Produto retorno = dao.salvar(p1);
