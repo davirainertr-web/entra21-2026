@@ -40,48 +40,52 @@ int ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date()));
 %>
 
 <p>Hoje é dia <%= dia %>.</p>
-
 <p>Hoje é <%= dia %> de <%= fncMES(mes) %> de <%= ano %>.</p>
 
 <%
-String nome = "Vilson";
+String nomeUsuario = "Davi";
 int idade = 50;
 %>
 
-<p>Seu nome é <%= nome %>.</p>
+<p>Seu nome é <%= nomeUsuario %>.</p>
 
 <%
 if(idade >= 18){
 %>
-<p><%= nome %>, você é maior de idade.</p>
+<p><%= nomeUsuario %>, você é maior de idade.</p>
 <%
 }else{
 %>
-<p><%= nome %>, você é menor de idade.</p>
+<p><%= nomeUsuario %>, você é menor de idade.</p>
 <%
 }
 %>
 
-<%@ include file="topo.jsp" %>
+<hr>
+<h2>Sistema JSP</h2>
 
-<form action="trataform.jsp" method="post">
-    Nome:
-    <input type="text" name="txtnome"><br><br>
-
-    E-mail:
-    <input type="email" name="txtemail"><br><br>
-
-    Data de nascimento:
-    <input type="date" name="txtdtnasc"><br><br>
-
-    <input type="submit" value="Enviar">
+<form action="transform.jsp" method="post">
+    <p>
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required />
+    </p>
+    <p>
+        <label>E-mail:</label><br>
+        <input type="email" name="email" required />
+    </p>
+    <p>
+        <label>Data de nascimento:</label><br>
+        <input type="date" name="dataNascimento" />
+    </p>
+    
+    <button type="submit">Enviar</button>
 </form>
 
 <%@ include file="rodape.jsp" %>
 
 <br>
-
 <a href="cadastro.jsp">Ir para Cadastro</a>
+<a href="listar.jsp">Ver Pessoas Cadastradas</a>
 
 </body>
 </html>
