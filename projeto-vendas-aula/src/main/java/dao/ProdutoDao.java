@@ -78,7 +78,7 @@ public class ProdutoDao {
 
     }
     
-    public void alterar(int id, Cliente novoCliente){
+    /*public void alterar(int id, Cliente novoCliente){
 
         Cliente cliente = consultar(id);
 
@@ -96,6 +96,6 @@ public class ProdutoDao {
 
         }
 
-    }
+    }/* */
 
 }
