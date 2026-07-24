@@ -18,19 +18,19 @@
 <p>Escolha uma opção:</p>
 
 <p>
-    <a href="produtos.jsp">
+    <a href="produto.jsp">
         <button>Produtos</button>
     </a>
 </p>
 
 <p>
-    <a href="clientes.jsp">
+    <a href="cliente.jsp">
         <button>Clientes</button>
     </a>
 </p>
 
 <p>
-    <a href="pedidos.jsp">
+    <a href="pedido.jsp">
         <button>Pedidos</button>
     </a>
 </p>

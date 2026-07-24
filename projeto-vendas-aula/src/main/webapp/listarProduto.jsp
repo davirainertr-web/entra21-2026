@@ -45,7 +45,7 @@ for(Produto p : produtos){
 %>
 
 <tr>
-    <td><%= id++ %></td>
+    <td><%= p.getId() %></td>
     <td><%= p.getDescricao() %></td>
     <td>R$ <%= p.getPreco() %></td>
     <td><%= p.getEstoque() %></td>
@@ -69,7 +69,7 @@ for(Produto p : produtos){
 
 <br><br>
 
-<a href="produtos.jsp">
+<a href="produto.jsp">
     Voltar
 </a>
 

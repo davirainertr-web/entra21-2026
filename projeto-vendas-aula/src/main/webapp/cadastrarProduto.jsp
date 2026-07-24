@@ -50,7 +50,7 @@
 
 <hr>
 
-<a href="produtos.jsp">Voltar</a>
+<a href="produto.jsp">Voltar</a>
 
 <%@ include file="rodape.jsp" %>
 

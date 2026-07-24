@@ -16,15 +16,16 @@ Produto produto = dao.consultar(id);
 <html>
 
 <head>
+
 <meta charset="UTF-8">
-<title>Consulta</title>
+
+<title>Excluir Produto</title>
+
 </head>
 
 <body>
 
 <%@ include file="topo.jsp" %>
-
-<h2>Resultado da Consulta</h2>
 
 <%
 
@@ -32,39 +33,47 @@ if(produto == null){
 
 %>
 
-<p>Produto não encontrado.</p>
+<h2>Produto não encontrado.</h2>
+
+<a href="excluirProduto.jsp">
+
+Voltar
+
+</a>
 
 <%
 
 }else{
 
+dao.excluir(id);
+
 %>
 
-<p><b>ID:</b> <%= id %></p>
+<h2>Produto excluído com sucesso!</h2>
 
 <p><b>Descrição:</b> <%= produto.getDescricao() %></p>
 
-<p><b>Preço:</b> R$ <%= produto.getPreco() %></p>
+<br>
 
-<p><b>Estoque:</b> <%= produto.getEstoque() %></p>
+<a href="listarProduto.jsp">
+
+Ver produtos
+
+</a>
+
+<br><br>
+
+<a href="produto.jsp">
+
+Voltar ao menu
+
+</a>
 
 <%
 
 }
 
 %>
-
-<br>
-
-<a href="consultarProduto.jsp">
-Nova consulta
-</a>
-
-<br><br>
-
-<a href="produto.jsp">
-Voltar
-</a>
 
 <%@ include file="rodape.jsp" %>
 

@@ -24,7 +24,7 @@
 </p>
 
 <p>
-    <a href="listarProdutos.jsp">
+    <a href="listarProduto.jsp">
         <button>Listar Produtos</button>
     </a>
 </p>

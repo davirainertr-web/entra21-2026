@@ -8,6 +8,7 @@ public class Produto {
     private int estoque;
 
     public Produto() {
+        this.id = 0;
     }
 
     public Produto(int id, String descricao, double preco, int estoque) {

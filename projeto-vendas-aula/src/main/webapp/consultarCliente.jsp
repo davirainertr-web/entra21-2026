@@ -6,16 +6,16 @@ pageEncoding="UTF-8"%>
 
 <head>
 <meta charset="UTF-8">
-<title>Consultar Produto</title>
+<title>Consultar Cliente</title>
 </head>
 
 <body>
 
 <%@ include file="topo.jsp" %>
 
-<h2>Consultar Produto</h2>
+<h2>Consultar Cliente</h2>
 
-<form action="resultadoConsultaProduto.jsp" method="post">
+<form action="resultadoConsultaCliente.jsp" method="post">
 
     <label>Informe o ID:</label><br>
 
@@ -35,7 +35,7 @@ pageEncoding="UTF-8"%>
 
 <br>
 
-<a href="produto.jsp">
+<a href="cliente.jsp">
 Voltar
 </a>
 

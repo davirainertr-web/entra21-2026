@@ -13,6 +13,7 @@
     produto.setEstoque(estoque);
 
     ProdutoDao dao = new ProdutoDao();
+    produto.setId(dao.consultar().size() + 1);
     dao.salvar(produto);
 %>
 
@@ -42,11 +43,11 @@
 
 <br><br>
 
-<a href="listarProdutos.jsp">Listar produtos</a>
+<a href="listarProduto.jsp">Listar produtos</a>
 
 <br><br>
 
-<a href="produtos.jsp">Voltar ao menu</a>
+<a href="produto.jsp">Voltar ao menu</a>
 
 <%@ include file="rodape.jsp" %>
 
