@@ -1,4 +1,5 @@
-<%@page import="java.util.List"%>
+<%@page import="dao.ProdutoDao"%>
+<%@page import="modelos.Pedido"%>
 <%@page import="modelos.ItemPedido"%>
 
 <%
@@ -6,54 +7,61 @@
 int id = Integer.parseInt(request.getParameter("id"));
 int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 
-List<ItemPedido> carrinho =
-(List<ItemPedido>) session.getAttribute("carrinho");
+Pedido pedido =
+(Pedido) session.getAttribute("pedido");
 
-if(carrinho != null){
+if(pedido == null){
 
-    for(int i = 0; i < carrinho.size(); i++){
+    response.sendRedirect("carrinho.jsp");
+    return;
 
-        ItemPedido item = carrinho.get(i);
+}
 
-        if(item.getProduto().getId() == id){
+ProdutoDao produtoDao = new ProdutoDao();
 
-            if(quantidade >= item.getQuantidade()){
+for(int i = 0; i < pedido.getItens().size(); i++){
 
-                item.getProduto().setEstoque(
+    ItemPedido item = pedido.getItens().get(i);
 
-                    item.getProduto().getEstoque()
-                    + item.getQuantidade()
+    if(item.getProduto().getId() == id){
 
-                );
+        if(quantidade >= item.getQuantidade()){
 
-                carrinho.remove(i);
+            produtoDao.devolverEstoque(
 
-            }else{
+                id,
 
-                item.setQuantidade(
+                item.getQuantidade()
 
-                    item.getQuantidade() - quantidade
+            );
 
-                );
+            pedido.getItens().remove(i);
 
-                item.getProduto().setEstoque(
+        }else{
 
-                    item.getProduto().getEstoque()
-                    + quantidade
+            produtoDao.devolverEstoque(
 
-                );
+                id,
 
-            }
+                quantidade
 
-            break;
+            );
+
+            item.setQuantidade(
+
+                item.getQuantidade() - quantidade
+
+            );
 
         }
+
+        break;
 
     }
 
 }
 
-session.setAttribute("carrinho", carrinho);
+session.setAttribute("pedido", pedido);
 
 response.sendRedirect("carrinho.jsp");
 

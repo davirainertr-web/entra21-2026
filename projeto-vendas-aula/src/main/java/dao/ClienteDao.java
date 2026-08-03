@@ -44,5 +44,25 @@ public class ClienteDao {
         }
 
     }
+    
+    public void alterar(int id, Cliente novoCliente){
+
+        Cliente cliente = consultar(id);
+
+        if(cliente != null){
+
+            cliente.setCpf(novoCliente.getCpf());
+            cliente.setNome(novoCliente.getNome());
+            cliente.setEmail(novoCliente.getEmail());
+            cliente.setCep(novoCliente.getCep());
+            cliente.setRua(novoCliente.getRua());
+            cliente.setNumero(novoCliente.getNumero());
+            cliente.setBairro(novoCliente.getBairro());
+            cliente.setCidade(novoCliente.getCidade());
+            cliente.setEstado(novoCliente.getEstado());
+
+        }
+
+    }
 
 }

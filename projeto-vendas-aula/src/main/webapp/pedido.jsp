@@ -43,6 +43,12 @@ pageEncoding="UTF-8"%>
 </p>
 
 <p>
+    <a href="listarPedido.jsp">
+        <button>Listar Pedidos</button>
+    </a>
+</p>
+
+<p>
     <a href="index.jsp">
         <button>Voltar</button>
     </a>

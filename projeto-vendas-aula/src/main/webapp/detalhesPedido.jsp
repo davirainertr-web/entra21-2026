@@ -4,18 +4,11 @@
 
 <%
 
-Pedido pedido =
-(Pedido) session.getAttribute("pedido");
+int id = Integer.parseInt(request.getParameter("id"));
 
 PedidoDao dao = new PedidoDao();
 
-boolean sucesso = false;
-
-if(pedido != null){
-
-    sucesso = dao.salvar(pedido);
-
-}
+Pedido pedido = dao.consultar(id);
 
 %>
 
@@ -27,7 +20,7 @@ if(pedido != null){
 
 <meta charset="UTF-8">
 
-<title>Pedido Finalizado</title>
+<title>Detalhes do Pedido</title>
 
 </head>
 
@@ -41,23 +34,7 @@ if(pedido == null){
 
 %>
 
-<h2>Nenhum pedido iniciado.</h2>
-
-<a href="pedido.jsp">Voltar</a>
-
-<%
-
-}else if(!sucesso){
-
-%>
-
-<h2>Não foi possível finalizar o pedido.</h2>
-
-<p>O carrinho está vazio.</p>
-
-<br>
-
-<a href="carrinho.jsp">Voltar</a>
+<h2>Pedido não encontrado.</h2>
 
 <%
 
@@ -65,15 +42,15 @@ if(pedido == null){
 
 %>
 
-<h2>Pedido Finalizado com Sucesso!</h2>
+<h2>Pedido <%= pedido.getId() %></h2>
 
-<hr>
+<p>
 
-<p><b>Número do Pedido:</b> <%= pedido.getId() %></p>
+<b>Cliente:</b>
 
-<p><b>Cliente:</b> <%= pedido.getCliente().getNome() %></p>
+<%= pedido.getCliente().getNome() %>
 
-<hr>
+</p>
 
 <table border="1">
 
@@ -82,6 +59,8 @@ if(pedido == null){
 <th>Produto</th>
 
 <th>Quantidade</th>
+
+<th>Preço</th>
 
 <th>Subtotal</th>
 
@@ -98,6 +77,8 @@ for(ItemPedido item : pedido.getItens()){
 <td><%= item.getProduto().getDescricao() %></td>
 
 <td><%= item.getQuantidade() %></td>
+
+<td>R$ <%= item.getProduto().getPreco() %></td>
 
 <td>R$ <%= item.getSubtotal() %></td>
 
@@ -117,21 +98,17 @@ for(ItemPedido item : pedido.getItens()){
 
 <%
 
-session.removeAttribute("pedido");
-
-%>
-
-<hr>
-
-<p>Obrigado pela compra!</p>
-
-<a href="pedido.jsp">Novo Pedido</a>
-
-<%
-
 }
 
 %>
+
+<br>
+
+<a href="listarPedido.jsp">
+
+Voltar
+
+</a>
 
 <%@ include file="rodape.jsp" %>
 

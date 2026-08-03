@@ -6,6 +6,7 @@ import java.util.List;
 import modelos.Cliente;
 import modelos.ItemPedido;
 import modelos.Pedido;
+import modelos.Produto;
 
 public class PedidoDao {
 
@@ -22,9 +23,21 @@ public class PedidoDao {
 
     }
 
-    public void salvar(Pedido pedido){
+    public boolean salvar(Pedido pedido){
 
-        pedidos.add(pedido);
+        if(pedido == null){
+            return false;
+        }
+
+        if(pedido.getItens().isEmpty()){
+            return false;
+        }
+
+        if(!pedidos.contains(pedido)){
+            pedidos.add(pedido);
+        }
+
+        return true;
 
     }
 
@@ -48,15 +61,48 @@ public class PedidoDao {
 
     }
 
-    public void adicionarItem(Pedido pedido, ItemPedido item){
 
-        pedido.getItens().add(item);
+    public void adicionarItem(Pedido pedido, Produto produto, int quantidade){
+
+        for(ItemPedido item : pedido.getItens()){
+
+            if(item.getProduto().getId() == produto.getId()){
+
+                item.setQuantidade(item.getQuantidade() + quantidade);
+
+                return;
+
+            }
+
+        }
+
+        pedido.getItens().add(new ItemPedido(produto, quantidade));
 
     }
 
-    public void removerItem(Pedido pedido, ItemPedido item){
+    public void removerItem(Pedido pedido, int idProduto, int quantidade){
 
-        pedido.getItens().remove(item);
+        for(int i = 0; i < pedido.getItens().size(); i++){
+
+            ItemPedido item = pedido.getItens().get(i);
+
+            if(item.getProduto().getId() == idProduto){
+
+                if(quantidade >= item.getQuantidade()){
+
+                    pedido.getItens().remove(i);
+
+                }else{
+
+                    item.setQuantidade(item.getQuantidade() - quantidade);
+
+                }
+
+                return;
+
+            }
+
+        }
 
     }
 

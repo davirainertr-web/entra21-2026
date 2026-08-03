@@ -1,38 +1,39 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@page import="dao.ProdutoDao"%>
 <%@page import="modelos.Produto"%>
 <%@page import="modelos.ItemPedido"%>
 <%@page import="modelos.Pedido"%>
-<%@page import="modelos.ItemPedido"%>
 
 <%
 
 int id = Integer.parseInt(request.getParameter("id"));
 int quantidade = Integer.parseInt(request.getParameter("quantidade"));
 
-ProdutoDao dao = new ProdutoDao();
-
-Produto produto = dao.consultar(id);
-
 Pedido pedido =
 (Pedido) session.getAttribute("pedido");
 
-if(carrinho == null){
-    carrinho = new ArrayList<>();
-}
+if(pedido == null){
 
-if(produto == null){
-
-    out.print("<h2>Produto não encontrado.</h2>");
+    response.sendRedirect("novoPedido.jsp");
     return;
 
 }
 
-if(produto.getEstoque() < quantidade){
+ProdutoDao dao = new ProdutoDao();
 
-    out.print("<h2>Estoque insuficiente.</h2>");
-    out.print("<a href='adicionarProdutoPedido.jsp'>Voltar</a>");
+Produto produto = dao.consultar(id);
+
+if(produto == null){
+
+    out.println("<h2>Produto não encontrado.</h2>");
+    return;
+
+}
+
+if(!dao.possuiEstoque(id, quantidade)){
+
+    out.println("<h2>Estoque insuficiente.</h2>");
+    out.println("<a href='adicionarProdutoPedido.jsp'>Voltar</a>");
+
     return;
 
 }
@@ -41,9 +42,9 @@ dao.baixarEstoque(id, quantidade);
 
 boolean encontrou = false;
 
-for(ItemPedido item : carrinho){
+for(ItemPedido item : pedido.getItens()){
 
-    if(item.getProduto().getId() == produto.getId()){
+    if(item.getProduto().getId() == id){
 
         item.setQuantidade(item.getQuantidade() + quantidade);
 
@@ -57,11 +58,9 @@ for(ItemPedido item : carrinho){
 
 if(!encontrou){
 
-	pedido.getItens().add(
-
-		    new ItemPedido(produto, quantidade)
-
-		);
+    pedido.getItens().add(
+        new ItemPedido(produto, quantidade)
+    );
 
 }
 

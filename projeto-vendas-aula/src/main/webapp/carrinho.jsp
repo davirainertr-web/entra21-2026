@@ -101,6 +101,7 @@ value="<%= item.getProduto().getId() %>">
 <input
 type="number"
 name="quantidade"
+value="1"
 min="1"
 max="<%= item.getQuantidade() %>"
 required>

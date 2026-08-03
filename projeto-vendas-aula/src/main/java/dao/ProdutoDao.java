@@ -66,6 +66,22 @@ public class ProdutoDao {
 
     }
     
+    public void devolverEstoque(int id, int quantidade){
+
+        Produto produto = consultar(id);
+
+        if(produto != null){
+
+            produto.setEstoque(
+
+                produto.getEstoque() + quantidade
+
+            );
+
+        }
+
+    }
+    
     public void excluir(int id){
 
         Produto produto = consultar(id);
@@ -78,24 +94,16 @@ public class ProdutoDao {
 
     }
     
-    /*public void alterar(int id, Cliente novoCliente){
+    public boolean possuiEstoque(int id, int quantidade){
 
-        Cliente cliente = consultar(id);
+        Produto produto = consultar(id);
 
-        if(cliente != null){
-
-            cliente.setCpf(novoCliente.getCpf());
-            cliente.setNome(novoCliente.getNome());
-            cliente.setEmail(novoCliente.getEmail());
-            cliente.setCep(novoCliente.getCep());
-            cliente.setRua(novoCliente.getRua());
-            cliente.setNumero(novoCliente.getNumero());
-            cliente.setBairro(novoCliente.getBairro());
-            cliente.setCidade(novoCliente.getCidade());
-            cliente.setEstado(novoCliente.getEstado());
-
+        if(produto == null){
+            return false;
         }
 
-    }/* */
+        return produto.getEstoque() >= quantidade;
 
+    }
+    
 }
