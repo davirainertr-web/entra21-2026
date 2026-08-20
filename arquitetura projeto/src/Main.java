@@ -5,7 +5,6 @@ import modelos.Produto;
 public class Main {
 
     public static void main(String[] args) {
-        // Correção 1: Passando o ID no construtor para bater com sua classe Produto
         Produto p1 = new Produto(1, "Picanha", 49.85);
         
         ProdutoDao dao = new ProdutoDao();
@@ -19,8 +18,7 @@ public class Main {
             System.out.println(p.getId() + " " + p.getDescricao() + " " + p.getPreco());    
         }
         */
-        
-        // Executa o fluxo de alteração do ID 4
+
         Produto p = dao.consultar(4);
         
         if (p != null) {
@@ -45,5 +43,5 @@ public class Main {
             System.out.println("Produto não encontrado");
         }
         */
-    } // Chave do método main corrigida
-} // Chave da classe Main corrigida
+    } 
+} 
