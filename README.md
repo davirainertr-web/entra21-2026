@@ -1,46 +1,35 @@
 # Curso Entra 21 (JAVA) - Turma 2026
 
-Este repositório foi criado para armazenar e organizar todos os projetos, exercícios e conteúdos desenvolvidos durante as aulas do programa **Entra 21**, com foco em desenvolvimento de software utilizando a linguagem **Java** e tecnologias web.
+Repositório com os projetos, exercícios e conteúdos desenvolvidos durante o programa **Entra 21**, com foco em **Java** (POO, JSP, Spring Boot) e tecnologias web (HTML, CSS, JavaScript).
 
 ## 🚀 Tecnologias Utilizadas
-* **Java**
-* **Eclipse IDE**
-* **Git & GitHub**
+* **Java** (POO, Coleções, JDBC)
+* **Spring Boot** (REST API, JPA, H2 Database)
+* **JSP / Servlets** (Apache Tomcat)
 * **HTML5 / CSS3 / JavaScript**
-* **MySQL**
+* **MySQL / H2 Database**
+* **Git & GitHub**
 
-## 📂 Estrutura do Repositório
+## 🛠️ Projetos Principais
+Numerados na ordem em que foram desenvolvidos:
 
-*   **Main:**
-    *   `conteúdos`: Pasta principal contendo as atividades separadas por tópicos;
-    *   `exercicios-orientacao-objeto/src`: Lista de exercícios passada em sala sobre OOP;
-    *   `Projetos`: Atividades desenvolvidas em sala de aula, implementadas tanto em ambiente Web quanto em Java Desktop;
-    *   `Responsividade`: Exemplos práticos de layouts adaptáveis usando CSS Media Queries e Flexbox, cobrindo mudança dinâmica de cores, menu de navegação mobile e grid flexível de colunas.
-*   **Jogos-da-Velha:**
-    *   `Jogos da velha`: 2 arquivos, um jogo em JAVA e outro em HTML.
-*   **Banco-de-dados:**
-    *   `banco de dados`: Pasta contendo alguns conteúdos de banco de dados.
+1. **[Spring Boot/Api](<1.Spring%20Boot/Api>)** — API REST de produtos (CRUD completo) com Spring Boot, Spring Data JPA e banco H2.
+2. **[Loja](<2.Loja>)** — Front-end (cadastro/consulta) que consome a API de produtos via `fetch`.
+3. **[projeto-vendas-aula](<3.projeto-vendas-aula>)** — Sistema de vendas em JSP: cadastro de clientes, produtos e pedidos, com controle de estoque via DAO.
+4. **Projetos menores**
+   * **[cinema](<4.Projetos%20menores/cinema>)** — Simulador interativo de escolha de assentos.
+   * **[Sistema de Cadastro](<4.Projetos%20menores/Sistema%20de%20Cadastro>)** — Cadastro de clientes com login, listagem, edição e busca de endereço por CEP (`localStorage` + ViaCEP).
 
-## 💻 Principais Tópicos Estudados
+## 📚 Estudos e Exercícios
+O restante do repositório reúne o material de apoio das aulas:
 
-### Em Java:
-* Lógica de programação e vetores
-* Estruturas Condicionais (`if/else`, `switch-case`) e Desvios Condicionais
-* Estruturas de Repetição (`for`, `while`)
-* Desenvolvimento do Jogo da Velha
-
-### Em Web (HTML / CSS / JS):
-* Estruturação de tags (cabeçalhos, divs, inputs, textos e atributos)
-* Manipulação do DOM e Orientação a Objetos no JavaScript
-* Programação assíncrona, callbacks e funções
-* Armazenamento local (`localStorage`)
-* Criação de Menus, Dropdowns e Responsividade
-
-## 🛠️ Projetos Desenvolvidos
-* **Sistema de Cadastro** — Utilizando HTML, CSS e JavaScript.
-* **Escolha de Assento de Cinema** — Simulador interativo utilizando HTML, CSS e JavaScript.
-* **Jogo da Velha (Java)** — Lógica de matrizes e condicionais aplicada no console/back-end.
-* **Jogo da Velha (HTML)** — Versão visual e interativa para rodar no navegador.
+* **`conteúdos/`** — Conteúdo das aulas por tópico: HTML básico, atributos/DOM, POO, callbacks/assíncrono, menus, arrays e listas de exercícios de lógica.
+* **`exercicios-orientacao-objeto/`** — Lista extensa de desafios de POO (biblioteca, veículos, conta bancária, aluno, funcionário, carro, lâmpada, etc).
+* **`Abstração/`**, **`Herança/`**, **`Constructors/`**, **`arquitetura projeto/`** — Exercícios focados em abstração/interfaces, herança, construtores e arquitetura em camadas (DAO).
+* **`Aula.JSP/`** — Primeiro contato com JSP (cadastro/listagem de contatos).
+* **`correção-de-código/`** — Exercício de correção de um formulário de login.
+* **`responsividade/`** — Exemplos de layouts responsivos com Media Queries e Flexbox.
+* **`Servers/`** — Configurações do Apache Tomcat 10 usadas para rodar os projetos JSP.
 
 ## 👤 Autor
 Desenvolvido por **Davi Rainert Rosa**.
